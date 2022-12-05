@@ -1,0 +1,129 @@
+* {
+  margin: 0;
+  padding: 0;
+  font-family: 'SF Pro Display', 'SF Pro Icons', 'Helvetica Neue', 'Helvetica',
+    'Arial', sans-serif;
+}
+
+.contact-us-container {
+  background-color: #586b88;
+}
+.contact-header {
+  height: 50px;
+  line-height: 50px;
+  font-size: 20px;
+  text-align: center;
+  color: #fff;
+}
+
+.contact-form-parent {
+  width: 60%;
+  height: 40vh;
+  margin: 0 auto;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 2rem;
+}
+.contact-form-card {
+  width: 40%;
+  height: 100%;
+  display: flex;
+  justify-content: center;
+}
+.contact-form-card img {
+  width: 30%;
+  transform: scale(2);
+  border-radius: 5px;
+  padding: 1rem;
+  margin-bottom: 1rem;
+  margin-top: 1rem;
+}
+
+.contact-form-fields {
+  width: 60%;
+  margin: 0 auto;
+  padding: 1rem;
+}
+
+.contact-form-fields label {
+  color: #fff;
+  font-size: 0.8rem;
+  font-weight: 600;
+}
+.contact-form-field-name {
+  color: #fff;
+
+  display: flex;
+  justify-content: space-around;
+}
+
+.contact-form-field-name section {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  margin-bottom: 1rem;
+  padding: 1rem;
+}
+
+.contact-form-fields section input {
+  background: rgba(218, 229, 248, 0.5);
+  padding: 0.4rem;
+  border-radius: 5px;
+  border: 1px solid #fff;
+  margin-top: 0.4rem;
+  width: 75%;
+}
+
+.contact-form-fields section input:focus {
+  outline: none;
+  border: 1px solid #fff;
+}
+
+.contact-form-field-message {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  margin-bottom: 1rem;
+  padding: 1rem;
+  margin-top: -1.4rem;
+}
+
+.contact-form-field-message label {
+  margin-bottom: 0.4rem;
+}
+
+.contact-form-field-message textarea {
+  background: rgba(218, 229, 248, 0.5);
+  resize: none;
+  border: 1px solid #fff;
+  width: 85%;
+  border-radius: 5px;
+  padding: 1rem;
+}
+
+.contact-form-field-message textarea:focus {
+  outline: none;
+  border: 1px solid #fff;
+}
+
+.contact-form-field-button {
+  display: flex;
+  justify-content: center;
+}
+
+.contact-form-field-button button {
+  padding: 0.4rem;
+  border: 1px solid #fff;
+  border-radius: 5px;
+  background-color: rgba(3, 3, 87, 0.349);
+}
+
+.contact-form-field-button button:hover {
+  background-color: #fff;
+  border-color: #fff;
+  cursor: pointer;
+  color: black;
+  transition: all 2s ease-in-out;
+}

@@ -1,5 +1,11 @@
+import ContactUs from './components/contact-us/ContactUs'
+
 function App() {
-  return <div className='App'>hello hackers!!</div>
+  return (
+    <>
+      <ContactUs />
+    </>
+  )
 }
 
 export default App
