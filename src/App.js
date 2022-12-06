@@ -1,28 +1,26 @@
-import ContactUs from './components/contact-us/ContactUs'
 import Login from './components/login/Login'
 import Signup from './components/signup/Signup'
 import React from 'react'
 import Footer from './components/footer/Footer'
 import Navbar from './components/navbar/Navbar'
-import HeroSection from './components/hero-section/HeroSection'
-import TeamsPage from './components/teamspage/TeamsPage'
-
-import { BrowserRouter, Routes, Route } from 'react-router-dom'
+import { Routes, Route } from 'react-router-dom'
+import Article from './components/articles/Article'
+import AboutUs from './components/about-us/AboutUs'
+import Home from './components/home/Home'
 
 function App() {
   return (
-    <BrowserRouter>
-      <Routes>
-        <Route path='/users/new' element={<Signup />} />
-        <Route path='/login' element={<Login />} />
-      </Routes>
+    <>
       <Navbar />
-      <HeroSection />
-      <TeamsPage />
-      <ContactUs />
-      
+      <Routes>
+        <Route path='/' element={<Home />} />
+        <Route path='/signup' element={<Signup />} />
+        <Route path='/login' element={<Login />} />
+        <Route path='/articles' element={<Article />} />
+        <Route path='/about' element={<AboutUs />} />
+      </Routes>
       <Footer />
-    </BrowserRouter>
+    </>
   )
 }
 

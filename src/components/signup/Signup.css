@@ -1,49 +1,40 @@
 * {
-    box-sizing: border-box;
+  box-sizing: border-box;
 }
 
-body {
-    background-color: #586B88;
-    /* background-size: cover; */
-    /* background-repeat: no-repeat; */
-    /* background-position: 3px -100px; */
-    text-align: center;
-
-}
-h2,h3,h4{
-    color: black;
+h2,
+h3,
+h4 {
+  color: black;
 }
 
+.parent-container-signup {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100vh;
+}
 .signup-box {
-    background-color: #9098a8;
-    position: absolute;
-    top: 50%;
-    left: 50%;
-    width: 450px;
-    /* padding: 30px; */
-    transform: translate(-50%, -50%);
-    background-size: cover;
-    box-shadow: 0 15px 15px rgba(33, 80, 167, 0.7);
-    border-radius: 7px;
-    
+  background-color: #9098a8;
+  width: 450px;
+  box-shadow: 5px 5px 16px 1px #393e46;
+  border-radius: 8px;
+  padding: 1rem;
 }
 
 .signup-box h2 {
-    /* margin: 0 0 30px; */
-    /* padding: 0; */
-    text-align: center;
+  text-align: center;
 }
 
 .signup-box .user-box input {
-    position: relative;
-    width: 100%;
-    padding: 7px 0;
-    border-radius: 5px;
-
+  position: relative;
+  width: 100%;
+  padding: 7px 0;
+  border-radius: 5px;
 }
 .user-box {
-    width: 65%;
-    margin-left: 70px;
+  width: 65%;
+  margin-left: 70px;
 }
 /* .input{
     padding-left: 20px;
@@ -54,22 +45,23 @@ h2,h3,h4{
 } */
 
 .formBtn {
-    padding: 10px 20px;
-    text-transform: uppercase;
-    overflow: hidden;
-    transition: .5s;
-    letter-spacing: 4px;
-    border: 1px solid #8F7CEC;
-    margin: auto;
-    border-radius: 10px;
-    width: 150px;
+  padding: 10px 20px;
+  text-transform: uppercase;
+  overflow: hidden;
+  transition: 0.5s;
+  letter-spacing: 4px;
+  border: 1px solid #8f7cec;
+  margin: auto;
+  border-radius: 10px;
+  width: 150px;
 }
 
 .formBtn:hover {
-    background: #9098a8;
-    color: #fff;
-    border-radius: 10px;
-    box-shadow: 0 0 5px rgb(109, 109, 170), 0 0 25px rgb(109, 109, 170), 0 0 50px rgb(109, 109, 170), 0 0 100px rgb(109, 109, 170);
+  background: #9098a8;
+  color: #fff;
+  border-radius: 10px;
+  box-shadow: 0 0 5px rgb(109, 109, 170), 0 0 25px rgb(109, 109, 170),
+    0 0 50px rgb(109, 109, 170), 0 0 100px rgb(109, 109, 170);
 }
 
 /* .button-form{

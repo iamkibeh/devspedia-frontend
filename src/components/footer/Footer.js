@@ -1,59 +1,48 @@
 import './footer.css'
-import { BsFacebook } from 'react-icons/bs'
+import { BsFacebook, BsInfoCircle } from 'react-icons/bs'
 import { FaTwitter } from 'react-icons/fa'
-import { AiFillInstagram } from 'react-icons/ai'
-import { AiFillYoutube } from 'react-icons/ai'
-import { AiOutlineHome } from 'react-icons/ai'
-import { BsInfoCircle } from 'react-icons/bs'
+import { AiFillInstagram, AiFillYoutube, AiOutlineHome } from 'react-icons/ai'
 import { RiContactsLine } from 'react-icons/ri'
 
 export default function Footer() {
   return (
-    <div className="footer ">
-      <div className="footertop">
-        <ul className="topList">
-          <li className="footerIcons">
-            <AiOutlineHome />
+    <div className='footer '>
+      <div className='footer-top'>
+        <ul>
+          <li>
+            <AiOutlineHome className='socials-icons' />
+            <a href='/'>home</a>
           </li>
-          <li className="topitem">Home</li>
-          <li className="footerIcons">
-            <BsInfoCircle />
+          <li>
+            <BsInfoCircle className='socials-icons' />
+            <a href='/about'>about</a>
           </li>
-          <li className="topitem">About</li>
-          <li className="footerIcons">
-            <RiContactsLine />
+          <li>
+            <RiContactsLine className='socials-icons' />
+            <a href='/contact_us'>contact</a>
           </li>
-          <li className="topitem">Contact us</li>
         </ul>
       </div>
 
-
-
-
-      <div className="footercenter">
-        <ul className='centerlist'>
-          <li className="footerIcons">
+      <div className='footer-center'>
+        <ul>
+          <li>
             <BsFacebook />
           </li>
-          <li className="footerIcons">
+          <li>
             <FaTwitter />
           </li>
-          <li className="footerIcons">
+          <li>
             <AiFillInstagram />
           </li>
-          <li className="footerIcons">
+          <li>
             <AiFillYoutube />
           </li>
         </ul>
       </div>
 
-      
-
-      <div className="footerbottom">
-      <ul className="bottomlist">
-          <li className="bottomitem">Terms of Services</li>
-          <li className="bottomitem">Privacy and Policy</li>
-        </ul>
+      <div className='footer-bottom'>
+        <p>Privacy and Policy - Terms of Services</p>
       </div>
     </div>
   )
