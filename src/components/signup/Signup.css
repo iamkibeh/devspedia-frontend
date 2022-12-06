@@ -1,0 +1,93 @@
+* {
+    box-sizing: border-box;
+}
+
+body {
+    background-color: #586B88;
+    background-size: cover;
+    background-repeat: no-repeat;
+    background-position: 3px -100px;
+    color: black;
+}
+h2,h3,h4{
+    color: black;
+}
+
+.signup-box {
+    background-color: #9098a8;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    padding: 30px;
+    transform: translate(-50%, -50%);
+    background-size: cover;
+    box-shadow: 0 15px 15px rgba(33, 80, 167, 0.7);
+    border-radius: 5px;
+    
+}
+
+.signup-box h2 {
+    margin: 0 0 30px;
+    padding: 0;
+    text-align: center;
+}
+
+.signup-box .user-box input {
+    position: relative;
+    width: 100%;
+    padding: 7px 0;
+    border-radius: 4px;
+
+}
+/* .formWrapper{
+    border-radius: 10px;
+
+} */
+
+.formBtn {
+    padding: 10px 20px;
+    text-transform: uppercase;
+    overflow: hidden;
+    transition: .5s;
+    letter-spacing: 4px;
+    border: 1px solid #8F7CEC;
+    margin: auto;
+    border-radius: 10px;
+    width: 150px;
+}
+
+.formBtn:hover {
+    background: #9098a8;
+    color: #fff;
+    border-radius: 10px;
+    box-shadow: 0 0 5px rgb(109, 109, 170), 0 0 25px rgb(109, 109, 170), 0 0 50px rgb(109, 109, 170), 0 0 100px rgb(109, 109, 170);
+}
+
+/* .button-form{
+    display: flex;
+    flex-direction: row;
+    margin-top: 20px;
+} */
+
+/* .logout-form{
+    display: flex;
+    flex-direction: row;
+    margin-left: 90%;
+} */
+/* .header text-center .logout-form  */
+/* #logout {
+    padding: 10px 20px;
+    border: 1px solid rgb(24, 24, 199);
+    margin: auto;
+    transition: .2s;
+    text-transform: uppercase;
+    letter-spacing: 4px;
+    overflow: hidden;
+} */
+
+/* #logout:hover{
+    background: #969dc5;
+    color: #fff;
+    border-radius: 5px;
+    box-shadow: 0 0 5px rgb(109, 109, 170), 0 0 25px rgb(109, 109, 170), 0 0 50px rgb(109, 109, 170), 0 0 100px rgb(109, 109, 170);
+} */
