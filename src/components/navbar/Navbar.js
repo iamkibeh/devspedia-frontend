@@ -19,17 +19,17 @@ export default function Navbar() {
           </li>
 
           <li className="topListItem">
-            <Link className="link" to="about">
+            <Link className="link" to="#">
               Articles
             </Link>
           </li>
           <li className="topListItem">
-            <Link className="link" to="cars">
+            <Link className="link" to="#">
               About
             </Link>
           </li>
           <li className="topListItem">
-            <Link className="link" to="contact">
+            <Link className="link" to="#">
               Contact us
             </Link>
           </li>
