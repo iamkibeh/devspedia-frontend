@@ -1,3 +1,4 @@
+import ContactUs from './components/contact-us/ContactUs'
 import Login from './components/login/Login'
 import Signup from './components/signup/Signup'
 import React from 'react'
@@ -18,6 +19,8 @@ function App() {
       <Navbar />
       <HeroSection />
       <TeamsPage />
+      <ContactUs />
+      
       <Footer />
     </BrowserRouter>
   )
