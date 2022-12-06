@@ -1,12 +1,20 @@
+
+import React from 'react'
+import Footer from './components/footer/Footer'
+import Navbar from './components/navbar/Navbar'
+import HeroSection from './components/hero-section/HeroSection'
 import TeamsPage from './components/teamspage/TeamsPage'
-import 'bootstrap/dist/css/bootstrap.min.css'
-import 'bootstrap/dist/js/bootstrap.bundle.min.js'
+
+import { BrowserRouter, Switch, Route } from 'react-router-dom'
 
 function App() {
   return (
-    <div className='App'>
+    <BrowserRouter>
+      <Navbar />
+      <HeroSection />
       <TeamsPage />
-    </div>
+      <Footer />
+    </BrowserRouter>
   )
 }
 
