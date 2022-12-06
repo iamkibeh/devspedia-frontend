@@ -1,5 +1,19 @@
+import React from "react";
+import Navbar from "./components/navbar/Navbar";
+import {
+  BrowserRouter,
+  Switch,
+  Route
+} from "react-router-dom";
+
+
 function App() {
-  return <div className='App'>hello hackers!!</div>
+  
+  return (
+    <BrowserRouter>
+      <Navbar />
+    </BrowserRouter>
+  );
 }
 
-export default App
+export default App;
