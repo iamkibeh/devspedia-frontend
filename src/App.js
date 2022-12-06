@@ -1,5 +1,19 @@
+import React from "react";
+import Footer from "./components/footer/Footer";
+import {
+  BrowserRouter,
+  Switch,
+  Route
+} from "react-router-dom";
+
+
 function App() {
-  return <div className='App'>hello hackers!!</div>
+  
+  return (
+    <BrowserRouter>
+      <Footer />
+    </BrowserRouter>
+  );
 }
 
-export default App
+export default App;
