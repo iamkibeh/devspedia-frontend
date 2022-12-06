@@ -76,11 +76,22 @@ function Signup({ addNewUser }) {
             <div class = "user-box">
                 <label className = 'label' htmlFor = 'password'></label>
                 <input className = 'input' id = 'password' type = 'password' name = 'password' placeholder = 'Password' value = {formState.password} onChange = {formChange} required />
+                </div>
+            <br></br>
+            <div class = "user-box">
                 <label className = 'label' htmlFor = 'passwordConfirm'></label>
                 <input className = 'input' id = 'passwordConfirm' type = 'password' name = 'passwordConfirm' placeholder = 'Confirm password' value = {passConfirmation.passwordConfirm} onChange = {passwordConfChange} required />
                 <div class = "button-form"></div>
                 <button className = 'formBtn' type = 'submit'>SUBMIT</button>
             </div>
+            <div class="register">
+            <p className="signup">
+              <h5>Have an account?</h5>
+              <a id="signupLink" href="/login">
+                Login 
+              </a>
+            </p>
+          </div>
             </form>
         </div>
     )
