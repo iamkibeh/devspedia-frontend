@@ -1,0 +1,97 @@
+* {
+  margin: 0;
+  padding: 0;
+  font-family: 'SF Pro Display', 'SF Pro Icons', 'Helvetica Neue', 'Helvetica',
+    'Arial', sans-serif;
+}
+
+.teams-container {
+  background-color: rgb(88, 107, 136);
+}
+
+.meet-us {
+  text-align: center;
+  padding: 1rem;
+}
+.meet-us span {
+  color: whitesmoke;
+}
+
+.sliding-images-container {
+  position: relative;
+  width: 100%;
+  height: 80vh;
+  display: flex;
+  justify-content: center;
+}
+
+.prev-slide {
+  position: absolute;
+  top: 40%;
+  left: 20%;
+  font-size: 24px;
+  cursor: pointer;
+}
+
+.next-slide {
+  position: absolute;
+  top: 40%;
+  right: 20%;
+  transform: translateY(-50%);
+  font-size: 24px;
+  cursor: pointer;
+}
+.prev-slide:hover {
+  padding-right: 1rem;
+  transition: all 1.5s ease;
+}
+
+.next-slide:hover {
+  padding-left: 1rem;
+  transition: all 1.5s ease;
+}
+.card-container {
+  position: relative;
+  width: 40%;
+  height: 60vh;
+  background-color: lightcyan;
+  display: flex;
+  justify-content: center;
+  box-shadow: 8px 6px 6px 1px rgba(0, 0, 0, 0.6);
+  align-items: center;
+}
+.developer-content {
+  position: absolute;
+  top: 10px;
+  bottom: 10px;
+  left: 10px;
+  right: 10px;
+  display: none;
+  padding: 1rem;
+  border-radius: 5px;
+  color: whitesmoke;
+}
+
+.developer-content h4 {
+  font-size: 1rem;
+  font-weight: bold;
+}
+.developer-content-child {
+  margin: 1.6rem auto;
+}
+
+.img-card {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  object-position: center;
+}
+
+.card-container:hover .developer-content {
+  background-color: rgba(51, 51, 51, 0.9);
+  display: block;
+  -webkit-transition: all 1.5s ease;
+  transition: all 2.5s ease;
+  -webkit-transition-delay: 0.25s;
+  transition-delay: 0.25s;
+}
