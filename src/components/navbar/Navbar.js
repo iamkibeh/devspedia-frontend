@@ -32,6 +32,11 @@ export default function Navbar() {
               Contact us
             </Link>
           </li>
+          <li className='topListItem'>
+            <Link className='link' to='/articles'>
+              Explore Developer Articles
+            </Link>
+          </li>
           <li className='topListItem'></li>
         </ul>
       </div>
