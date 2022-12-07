@@ -1,0 +1,127 @@
+* {
+  padding: 0;
+  margin: 0;
+}
+
+.free-articles-title {
+  text-align: center;
+  background-color: #586b88;
+}
+.free-articles-title h1 {
+  padding: 0.4rem;
+}
+
+.articles-container {
+  padding: 1.5rem;
+  background-color: rgba(86, 104, 132, 0.6);
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(360px, 1fr));
+  gap: 2rem;
+  animation: fade-in-left 3s ease-out 1s 1 both;
+}
+
+.article-card {
+  padding: 0.5rem;
+  display: flex;
+  flex-direction: column;
+  border-radius: 8px;
+  min-height: 40vh;
+  position: relative;
+  background-color: #d9d9d9;
+}
+
+@keyframes fade-in-left {
+  0% {
+    transform: translateX(-45vw);
+    opacity: 0;
+  }
+  50% {
+    transform: translateX(10vh);
+    opacity: 0.8;
+  }
+  100% {
+    transform: translateX(0);
+    opacity: 1;
+  }
+}
+.article-image {
+  width: 100%;
+  height: 25%;
+  display: flex;
+  gap: 1.2rem;
+  align-items: center;
+  padding: 1rem;
+}
+
+.article-image-myimage {
+  width: 4rem;
+  height: 4rem;
+  display: flex;
+  justify-content: center;
+}
+
+.article-image-myimage img {
+  width: 100%;
+  max-height: 1000%;
+  object-fit: cover;
+  border-radius: 50%;
+  object-position: center;
+  border: 1px solid black;
+}
+
+.article-content {
+  padding: 0.4rem;
+}
+
+.article-title {
+  padding: 0.2rem;
+  text-align: center;
+}
+
+.article-content .article-description {
+  padding: 0.4rem;
+  margin-bottom: 0.4rem;
+}
+.article-content .article-description button {
+  background-color: transparent;
+  border: none;
+  padding: 0.4rem;
+  cursor: pointer;
+  font-style: italic;
+  font-weight: bold;
+  font-size: 0.8rem;
+  color: #586b88;
+}
+
+.article-footer {
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  margin-top: 1rem;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 3rem;
+  padding: 0.3rem;
+}
+
+.show-more-button {
+  background-color: #586b88;
+  color: white;
+  display: flex;
+  justify-content: end;
+  padding: 0.4rem;
+  margin-bottom: 1px;
+}
+
+.show-more-button > button {
+  background-color: #d9d9d9;
+  margin-right: 1.4rem;
+  font-weight: 600;
+  border: none;
+  padding: 0.5rem;
+  cursor: pointer;
+  text-transform: uppercase;
+  border-radius: 10px;
+}
