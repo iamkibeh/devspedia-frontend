@@ -27,7 +27,7 @@ const TeamsPage = () => {
       <div className='teams-container'>
         <h2 className='meet-us'>
           <TypeAnimation
-            sequence={['meet', 1000, 'meet our', 1000, 'meet our team', 1000]}
+            sequence={['Meet', 1000, 'Meet Our', 1000, 'Meet Our Team', 1000]}
             cursor={false}
             wrapper='h2'
             easing='ease-in-out'

@@ -6,7 +6,7 @@
 }
 
 .teams-container {
-  background-color: rgb(88, 107, 136);
+  /* background-image: linear-gradient(to top, #dfe9f3 0%, white 100%); */
 }
 
 .meet-us {
@@ -93,6 +93,7 @@
   width: 60%;
   min-height: 15vh;
   animation: fadeInBottom 2s both;
+  border-radius: 10px;
 }
 
 @keyframes fadeInBottom {
@@ -102,7 +103,6 @@
   }
   50% {
     opacity: 0.5;
-    background-color: black;
     color: white;
   }
   100% {

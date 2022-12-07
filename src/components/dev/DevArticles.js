@@ -1,5 +1,7 @@
 import React from 'react'
 import './dev.css'
+import { VscSaveAs } from 'react-icons/vsc'
+import { GiCancel } from 'react-icons/gi'
 
 const DevArticles = () => {
   return (
@@ -24,8 +26,12 @@ const DevArticles = () => {
             <label for='is_free'>Premium</label>
           </div>
           <div className='form-field-buttons'>
-            <button>cancel</button>
-            <button type='submit'>save</button>
+            <button className='cancel-btn'>
+              cancel <GiCancel className='tick-icon' />
+            </button>
+            <button type='submit'>
+              save <VscSaveAs className='tick-icon' />
+            </button>
           </div>
         </form>
       </div>

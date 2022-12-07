@@ -11,16 +11,18 @@ const FreeArticles = () => {
   })
   return (
     <>
-      <div className='free-articles-title'>
-        <h1>Latest from DevsPedia</h1>
-      </div>
-      <div className={inView ? 'articles-container' : null} ref={ref}>
-        <OneArticle />
-        <OneArticle />
-        <OneArticle />
-      </div>
-      <div className='show-more-button'>
-        <button>read more</button>
+      <div className='free-article-container'>
+        <div className='free-articles-title'>
+          <h1>Latest from DevsPedia</h1>
+        </div>
+        <div className={inView ? 'articles-container' : null} ref={ref}>
+          <OneArticle />
+          <OneArticle />
+          <OneArticle />
+        </div>
+        <div className='show-more-button'>
+          <button>read more</button>
+        </div>
       </div>
     </>
   )

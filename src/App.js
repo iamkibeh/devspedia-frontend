@@ -12,6 +12,7 @@ import User from './components/dev/Devs'
 import Profile from './components/dashboard/Profile'
 import DevArticles from './components/dev/DevArticles'
 import MyArticles from './components/dev/MyArticles'
+import DevLogin from './components/dev/DevLogin'
 
 function App() {
   return (
@@ -25,6 +26,7 @@ function App() {
         <Route path='about' element={<AboutUs />} />
         <Route path='dev' element={<DevsDashboard />}>
           {/* <Route index element={<DevsDashboard />} /> */}
+          <Route path='login' element={<DevLogin />} />
           <Route path=':id/dashboard/profile' element={<Profile />} />
           <Route path=':id/articles/create' element={<DevArticles />} />
           <Route path=':id/articles' element={<MyArticles />} />

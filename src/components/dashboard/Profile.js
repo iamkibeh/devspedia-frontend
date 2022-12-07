@@ -17,27 +17,27 @@ const Profile = () => {
         <div className='profile-form'>
           <form action='#'>
             <div className='form-field'>
-              <label htmlFor='username'>username</label>
+              <label htmlFor='username'>Username</label>
               <input type='text' name='u-name' id='username' />
             </div>
             <div className='form-field'>
-              <label htmlFor='image-url'>image url</label>
+              <label htmlFor='image-url'>Image url</label>
               <input type='text' name='image-url' id='image-url' />
             </div>
             <div className='form-field'>
-              <label htmlFor='github-url'>github url</label>
+              <label htmlFor='github-url'>Github url</label>
               <input type='text' name='github-url' id='github-url' />
             </div>
             <div className='form-field'>
-              <label htmlFor='linkedin-url'>linkedin url</label>
+              <label htmlFor='linkedin-url'>Linkedin url</label>
               <input type='text' name='linkedin-url' id='linkedin-url' />
             </div>
             <div className='form-field'>
-              <label htmlFor='twitter-url'>twitter url</label>
+              <label htmlFor='twitter-url'>Twitter url</label>
               <input type='text' name='twitter-url' id='twitter-url' />
             </div>
             <div className='form-field-buttons'>
-              <button>cancel</button>
+              <button className='cancel-btn'>cancel</button>
               <button type='submit'>save</button>
             </div>
           </form>

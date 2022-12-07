@@ -1,12 +1,12 @@
 import React from 'react'
-import svg from './assets/undraw_stepping_up_g6oo.svg'
+import svg from './assets/undraw_notebook_re_id0r.svg'
 import './contact-us.css'
 const ContactUs = () => {
   return (
     <>
       <div className='contact-us-container'>
         <div className='contact-header'>
-          <h2>contact us:</h2>
+          <h2>Contact Us</h2>
         </div>
         <div className='contact-form-parent'>
           <div className='contact-form-card'>

@@ -9,6 +9,7 @@ h4 {
 }
 
 .parent-container-signup {
+  background-color: #8f7cec;
   display: flex;
   justify-content: center;
   align-items: center;
