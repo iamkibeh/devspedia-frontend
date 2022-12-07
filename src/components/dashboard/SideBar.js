@@ -15,32 +15,32 @@ const SideBar = () => {
       <ul>
         <li>
           <MdOutlineEdit />
-          <NavLink to='/user/:id/dashboard/profile'>
+          <NavLink to='/dev/:id/dashboard/profile'>
             <p>Edit Profile</p>
           </NavLink>
         </li>
         <li>
           <IoMdNotificationsOutline />
-          <NavLink to='/user/:id/articles'>
+          <NavLink to='/dev/:id/articles'>
             <p>Articles</p>
           </NavLink>
         </li>
         <li>
           <MdOutlineLock />
-          <NavLink to='/user/:id/articles'>
+          <NavLink to='/dev/:id/articles/create'>
             <p>Post Articles</p>
           </NavLink>
         </li>
         <li>
           <MdOutlineSettings />
-          <NavLink to='/user/:id/settings'>
+          <NavLink to='/dev/:id/settings'>
             <p>Settings</p>
           </NavLink>
         </li>
         <li>
           <MdHelpOutline />
-          <NavLink to='/user/:id/help'>
-            <p>Help</p>
+          <NavLink to='/dev/:id/logout'>
+            <p>Logout</p>
           </NavLink>
         </li>
       </ul>

@@ -2,6 +2,7 @@ import React from 'react'
 import Profile from './Profile'
 import SideBar from './SideBar'
 import './dashboard.css'
+import { Outlet } from 'react-router-dom'
 
 const DevsDashboard = () => {
   return (
@@ -11,9 +12,8 @@ const DevsDashboard = () => {
           <SideBar />
         </div>
         <div className='dashboard-content'>
-          <div>
-            <Profile />
-          </div>
+          {/* <div><Profile /></div> */}
+          <Outlet />
         </div>
       </div>
     </>

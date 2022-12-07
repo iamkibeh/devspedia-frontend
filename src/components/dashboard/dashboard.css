@@ -13,7 +13,7 @@
 }
 .side-bar-container {
   width: 25%;
-  height: 80vh;
+  /* height: 80vh; */
   background-color: #566884;
   padding: 1.5rem;
   display: flex;
@@ -67,7 +67,6 @@
 
 .profile-header {
   display: flex;
-  width: 100%;
   padding: 1rem;
   gap: 2rem;
   align-items: center;

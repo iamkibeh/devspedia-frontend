@@ -1,4 +1,5 @@
 import React from 'react'
+import DevsDashboard from './DevsDashboard'
 
 const Profile = () => {
   return (
