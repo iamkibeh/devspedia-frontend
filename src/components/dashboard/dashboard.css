@@ -44,8 +44,10 @@
   margin-bottom: 1rem;
 }
 
-.side-bar-container > div > ul > li > p {
+.side-bar-container > div > ul > li > a {
   padding-left: 1rem;
+  text-decoration: none;
+  color: #ccc;
 }
 .side-bar-container > div > ul > li:first-child {
   text-decoration: underline;

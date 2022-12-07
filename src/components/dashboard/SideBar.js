@@ -6,6 +6,7 @@ import {
   MdHelpOutline,
 } from 'react-icons/md'
 import { IoMdNotificationsOutline } from 'react-icons/io'
+import { NavLink } from 'react-router-dom'
 
 const SideBar = () => {
   return (
@@ -14,23 +15,33 @@ const SideBar = () => {
       <ul>
         <li>
           <MdOutlineEdit />
-          <p>Edit Profile</p>
+          <NavLink to='/user/:id/dashboard/profile'>
+            <p>Edit Profile</p>
+          </NavLink>
         </li>
         <li>
           <IoMdNotificationsOutline />
-          <p>Articles</p>
+          <NavLink to='/user/:id/articles'>
+            <p>Articles</p>
+          </NavLink>
         </li>
         <li>
           <MdOutlineLock />
-          <p>Post Articles</p>
+          <NavLink to='/user/:id/articles'>
+            <p>Post Articles</p>
+          </NavLink>
         </li>
         <li>
           <MdOutlineSettings />
-          <p>Settings</p>
+          <NavLink to='/user/:id/settings'>
+            <p>Settings</p>
+          </NavLink>
         </li>
         <li>
           <MdHelpOutline />
-          <p>Help</p>
+          <NavLink to='/user/:id/help'>
+            <p>Help</p>
+          </NavLink>
         </li>
       </ul>
     </div>
