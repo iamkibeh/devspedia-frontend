@@ -7,7 +7,8 @@ import { Routes, Route } from 'react-router-dom'
 import Article from './components/articles/Article'
 import AboutUs from './components/about-us/AboutUs'
 import Home from './components/home/Home'
-// import DevsDashboard from './components/dashboard/DevsDashboard'
+import DevsDashboard from './components/dashboard/DevsDashboard'
+import User from './components/user/User'
 
 function App() {
   return (
@@ -19,9 +20,12 @@ function App() {
         <Route path='/login' element={<Login />} />
         <Route path='/articles' element={<Article />} />
         <Route path='/about' element={<AboutUs />} />
+        <Route path='/user' element={<User />}>
+          <Route index element={<DevsDashboard />} />
+          <Route path=':id/dashboard/profile' element={<DevsDashboard />} />
+          <Route path=':id/articles' element={<Article />} />
+        </Route>
       </Routes>
-      {/* <DevsDashboard /> */}
-
       <Footer />
     </>
   )
