@@ -1,35 +1,27 @@
 import React, { useState, useEffect } from 'react'
 import { SliderData } from './assets/SliderData'
-import { FaAngleRight, FaAngleLeft } from 'react-icons/fa'
 import './teamspage.css'
 import { TypeAnimation } from 'react-type-animation'
+import { useInView } from 'react-intersection-observer'
 
 const TeamsPage = () => {
-  // set the current image to display
-  const [currentImage, setCurrentImage] = useState(0)
+  const [reviewDisplay, setReviewDisplay] = useState(0)
+  const { ref, inView } = useInView({
+    triggerOnce: true,
+    threshold: 1,
+  })
 
   useEffect(() => {
-    let myTimeout = setTimeout(() => {
-      setCurrentImage(
-        currentImage === SliderData.length - 1 ? 0 : currentImage + 1
+    const myTimeout = setTimeout(() => {
+      setReviewDisplay(
+        reviewDisplay === SliderData.length - 1 ? 0 : reviewDisplay + 1
       )
-    }, 5000)
+    }, 15000)
 
     return () => {
-      clearTimeout(myTimeout, 4000)
+      clearTimeout(myTimeout, 15000)
     }
-  }, [currentImage])
-
-  const prevSlide = () => {
-    setCurrentImage(
-      currentImage === 0 ? SliderData.length - 1 : currentImage - 1
-    )
-  }
-  const nextSlide = () => {
-    setCurrentImage(
-      currentImage === SliderData.length - 1 ? 0 : currentImage + 1
-    )
-  }
+  }, [reviewDisplay])
   return (
     <>
       <div className='teams-container'>
@@ -43,28 +35,30 @@ const TeamsPage = () => {
           />
           {/* meet <span>our</span> team */}
         </h2>
-        <div className='sliding-images-container'>
-          <FaAngleLeft className='prev-slide' onClick={prevSlide} />
-          <FaAngleRight className='next-slide' onClick={nextSlide} />
-
-          <div className='card-container'>
-            <div className='developer-content'>
-              <div className='developer-content-child'>
-                <h4>{SliderData[currentImage].name}</h4>
-                <p>
-                  Lorem ipsum dolor sit amet, consectetur adipisicing elit.
-                  Molestias nihil fuga tenetur nam aut vitae ratione provident
-                  omnis, illum assumenda eos magni inventore! Sequi ipsum qui,
-                  similique accusantium dolorum atque.
-                </p>
+        <div className={inView ? 'sliding-images-container' : null} ref={ref}>
+          {SliderData.map((review, ind) => {
+            return (
+              <div
+                className={
+                  reviewDisplay === ind
+                    ? 'active-developer'
+                    : 'not-active-developer'
+                }
+                key={ind}
+              >
+                <div className='card-div'>
+                  <img src={review.image} alt='avatar of a person' />
+                  <p>{review.name}</p>
+                </div>
+                <div className='bio-sec'>
+                  <p>{review.bio}</p>
+                  <p className='my-date'>
+                    <span>{review.name}</span> {review.date}
+                  </p>
+                </div>
               </div>
-            </div>
-            <img
-              src={SliderData[currentImage].image}
-              alt=''
-              className='img-card'
-            />
-          </div>
+            )
+          })}
         </div>
       </div>
     </>
