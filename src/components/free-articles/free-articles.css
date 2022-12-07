@@ -26,6 +26,7 @@
   flex-direction: column;
   border-radius: 8px;
   min-height: 40vh;
+  max-width: 40vw;
   position: relative;
   background-color: #d9d9d9;
 }
