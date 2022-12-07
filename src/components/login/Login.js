@@ -43,66 +43,48 @@ function Login({ setLoggedIn }) {
 
   return (
     <>
-      <div className='parent-container-signup'>
+      <div className='login-parent-container'>
         <div class='login-box'>
-          <h2>
-            <b>Login</b>
-          </h2>
-          <br></br>
-          <h3>
-            <b>Welcome to Devspedia</b>
-          </h3>
-          <br></br>
-          <h4>
-            {' '}
-            <i>Login to explore developer articles </i>
-          </h4>
-          <br></br>
-          <form
-            className='formWrapper'
-            onSubmit={handleSubmit}
-            autoComplete='off'
-          >
-            <div class='user-box'>
-              <input
-                className='input'
-                type='text'
-                name='username'
-                placeholder='Username'
-                value={formState.username}
-                onChange={formChange}
-                required
-              />
-            </div>
-            <br></br>
-            <div class='user-box'>
-              <input
-                className='input'
-                type='password'
-                name='password'
-                placeholder='Password'
-                value={formState.password}
-                onChange={formChange}
-                required
-              />
-            </div>
-            <br></br>
-            <div class='button-form'>
-              <button id='formBtn' type='submit'>
-                LOGIN
-              </button>
-            </div>
-            <div>
-              <div class='register'>
-                <p className='signup'>
-                  <h5>Don't have an account?</h5>
+          <h3>Login</h3>
+          <h4>Welcome to Devspedia</h4>
+          <p>Login to explore developer articles</p>
+          <div className='devs-login-form'>
+            <form onSubmit={handleSubmit} autoComplete='off'>
+              <div className='login-inputs-container'>
+                <input
+                  type='text'
+                  name='username'
+                  placeholder='Username'
+                  value={formState.username}
+                  onChange={formChange}
+                  required
+                />
+                <input
+                  type='password'
+                  name='password'
+                  placeholder='Password'
+                  value={formState.password}
+                  onChange={formChange}
+                  required
+                />
+              </div>
+              <div class='logins-button-form'>
+                <button type='submit'>login</button>
+              </div>
+            </form>
+          </div>
+          <div className='login-footer'>
+            <div class='register'>
+              <p>
+                Don't have an account?
+                <span>
                   <a id='signupLink' href='/signup'>
                     Register
                   </a>
-                </p>
-              </div>
+                </span>
+              </p>
             </div>
-          </form>
+          </div>
         </div>
       </div>
     </>

@@ -1,5 +1,7 @@
 import React from 'react'
 import DevsDashboard from './DevsDashboard'
+import { VscSaveAs } from 'react-icons/vsc'
+import { GiCancel } from 'react-icons/gi'
 
 const Profile = () => {
   return (
@@ -37,8 +39,14 @@ const Profile = () => {
               <input type='text' name='twitter-url' id='twitter-url' />
             </div>
             <div className='form-field-buttons'>
-              <button className='cancel-btn'>cancel</button>
-              <button type='submit'>save</button>
+              <button className='cancel-btn'>
+                cancel
+                <GiCancel className='tick-icon' />
+              </button>
+              <button type='submit'>
+                save
+                <VscSaveAs className='tick-icon' />
+              </button>
             </div>
           </form>
         </div>
