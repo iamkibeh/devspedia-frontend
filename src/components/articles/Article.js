@@ -18,14 +18,14 @@ function Article() {
   useEffect(() => {
     fetch(`http://localhost:`)
     .then(r => r.json())
-    .then( (notes) => {
-      console.log(notes)
-      setArticles(notes)
+    .then( (articles) => {
+      console.log(articles)
+      setArticles(articles)
     })
     }, [loggedIn, post])
 
     const deleteArticle = (id) => {
-        const newArticles = articles.filter(note => note.id !== id)
+        const newArticles = articles.filter(article => article.id !== id)
         setArticles(newArticles)
     }
 
