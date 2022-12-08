@@ -1,19 +1,17 @@
 * {
   margin: 0;
   padding: 0;
-  font-family: 'SF Pro Display', 'SF Pro Icons', 'Helvetica Neue', 'Helvetica',
-    'Arial', sans-serif;
 }
 
 .contact-us-container {
-  background-color: #586b88;
+  /* background-color: #586b88; */
+  padding: 0.5rem;
 }
 .contact-header {
   height: 50px;
   line-height: 50px;
   font-size: 20px;
   text-align: center;
-  color: #fff;
 }
 
 .contact-form-parent {
@@ -47,15 +45,13 @@
 }
 
 .contact-form-fields label {
-  color: #fff;
+  /* color: #fff; */
   font-size: 0.8rem;
   font-weight: 600;
 }
 .contact-form-field-name {
-  color: #fff;
-
   display: flex;
-  justify-content: space-around;
+  justify-content: space-between;
 }
 
 .contact-form-field-name section {
@@ -73,7 +69,6 @@
   border-radius: 5px;
   border: 1px solid #fff;
   margin-top: 0.4rem;
-  width: 75%;
 }
 
 .contact-form-fields section input:focus {
@@ -98,7 +93,7 @@
   background: rgba(218, 229, 248, 0.5);
   resize: none;
   border: 1px solid #fff;
-  width: 85%;
+  /* width: 85%; */
   border-radius: 5px;
   padding: 1rem;
 }
@@ -117,7 +112,8 @@
   padding: 0.4rem;
   border: 1px solid #fff;
   border-radius: 5px;
-  background-color: rgba(3, 3, 87, 0.349);
+  background-color: #008cba;
+  color: white;
 }
 
 .contact-form-field-button button:hover {
