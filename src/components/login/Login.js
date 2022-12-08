@@ -19,7 +19,7 @@ function Login({ setLoggedIn }) {
 
   const handleSubmit = async (e) => {
     e.preventDefault()
-    await fetch('http://localhost:9293/users/login', {
+    await fetch('/dashboard', {
       method: 'POST',
       headers: {
         'Content-Type': 'application/json',
@@ -36,7 +36,7 @@ function Login({ setLoggedIn }) {
           setFormState(initFormState)
           localStorage.setItem('user', user)
           console.log(user)
-          navigate('/home')
+          navigate('/articles')
         }
       })
   }
