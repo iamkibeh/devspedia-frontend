@@ -1,18 +1,26 @@
 import React, { useState } from 'react'
 import { BsHeart } from 'react-icons/bs'
 
-const OneArticle = ({article,readMore, setReadMore}) => {
-  const {created_at, dev, featured_image, id, likes, minutes_to_read, title,content} = article
- console.log(article)
+const OneArticle = ({ article }) => {
+  const {
+    created_at,
+    dev,
+    featured_image,
+    id,
+    likes,
+    minutes_to_read,
+    title,
+    content,
+  } = article
+  const [readMore, setReadMore] = useState(false)
+
+  console.log(article)
 
   return (
     <div className='article-card'>
       <div className='article-image'>
         <div className='article-image-myimage'>
-          <img
-            src={featured_image}
-            alt='profile picture'
-          />
+          <img src={featured_image} alt='profile pic' />
         </div>
         <p>{dev.username}</p>
       </div>
@@ -23,8 +31,8 @@ const OneArticle = ({article,readMore, setReadMore}) => {
         </div>
         <div className='article-description'>
           <p>
-            {readMore ? {content} : `${content.substring(0, 100)}...`}
-            <button onClick={()=>setReadMore(readMore=>!readMore)}>
+            {readMore ? { content } : `${content.substring(0, 100)}...`}
+            <button onClick={() => setReadMore((readMore) => !readMore)}>
               {readMore ? 'show less' : '  read more'}
             </button>
           </p>
