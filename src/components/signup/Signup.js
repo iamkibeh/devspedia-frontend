@@ -2,7 +2,7 @@ import React, { useState } from 'react'
 import { useNavigate } from 'react-router-dom'
 import './Signup.css'
 
-function Signup({ addNewUser }) {
+function Signup({ }) {
   const initFormState = {
     username: '',
     email: '',
@@ -31,19 +31,26 @@ function Signup({ addNewUser }) {
     if (formState.password !== passConfirmation.passwordConfirm) {
       alert('Passwords do not match! Please try again.')
     } else {
-      await fetch('http://localhost:9293/users', {
+      await fetch('/signup', {
         method: 'POST',
         headers: {
           'Content-Type': 'application/json',
         },
         body: JSON.stringify(formState),
+      }).then((r) => {
+        if (r.ok) {
+          r.json().then((user) => setFormState(user));
+      
+          setTimeout(() => {
+            navigate("/login");
+          }, 2000);
+        } else {
+          r.json().then((err) => 
+            console.log(err.errors)
+           
+          );
+        }
       })
-        .then((resp) => resp.json())
-        .then((newUser) => {
-          addNewUser(newUser)
-          setFormState(initFormState)
-          navigate('/')
-        })
     }
   }
 
