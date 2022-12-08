@@ -1,4 +1,4 @@
-import { useNavigate } from 'react-router-dom'
+import { useNavigate, Link } from 'react-router-dom'
 import React, { useState } from 'react'
 import './Login.css'
 
@@ -9,6 +9,7 @@ function Login({ setLoggedIn }) {
   }
 
   const [formState, setFormState] = useState(initFormState)
+  const myRoute = window.location.pathname
 
   const navigate = useNavigate()
 
@@ -18,6 +19,7 @@ function Login({ setLoggedIn }) {
   }
 
   const handleSubmit = async (e) => {
+    console.log(formState)
     e.preventDefault()
     await fetch('http://localhost:9293/users/login', {
       method: 'POST',
@@ -44,7 +46,7 @@ function Login({ setLoggedIn }) {
   return (
     <>
       <div className='login-parent-container'>
-        <div class='login-box'>
+        <div className='login-box'>
           <h3>Login</h3>
           <h4>Welcome to Devspedia</h4>
           <p>Login to explore developer articles</p>
@@ -68,19 +70,21 @@ function Login({ setLoggedIn }) {
                   required
                 />
               </div>
-              <div class='logins-button-form'>
+              <div className='logins-button-form'>
                 <button type='submit'>login</button>
               </div>
             </form>
           </div>
           <div className='login-footer'>
-            <div class='register'>
+            <div className='register'>
               <p>
                 Don't have an account?
                 <span>
-                  <a id='signupLink' href='/signup'>
+                  <Link
+                    to={myRoute !== '/dev/login' ? '/signup' : '/dev/signup'}
+                  >
                     Register
-                  </a>
+                  </Link>
                 </span>
               </p>
             </div>

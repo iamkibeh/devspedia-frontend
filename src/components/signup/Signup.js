@@ -1,15 +1,18 @@
 import React, { useState } from 'react'
-import { useNavigate } from 'react-router-dom'
+import { useNavigate, Link } from 'react-router-dom'
 import './Signup.css'
 
 function Signup({ addNewUser }) {
   const initFormState = {
+    firstname: '',
+    lastname: '',
     username: '',
     email: '',
     password: '',
   }
 
   const navigate = useNavigate()
+  const myRouteLocation = window.location.pathname
 
   const [formState, setFormState] = useState(initFormState)
   const [passConfirmation, setPassConfirmation] = useState({
@@ -50,7 +53,7 @@ function Signup({ addNewUser }) {
   return (
     <>
       <div className='parent-container-signup'>
-        <div class='login-box'>
+        <div className='login-box'>
           <h3>Signup</h3>
           <h4>Welcome to Devspedia</h4>
           <p>Signup to get unlimited access to articles</p>
@@ -113,19 +116,25 @@ function Signup({ addNewUser }) {
                 />
               </div>
 
-              <div class='logins-button-form'>
+              <div className='logins-button-form'>
                 <button type='submit'>submit</button>
               </div>
             </form>
           </div>
           <div className='login-footer'>
-            <div class='register'>
+            <div className='register'>
               <p>
                 Have an account?
                 <span>
-                  <a id='signupLink' href='/login'>
+                  <Link
+                    to={
+                      myRouteLocation !== '/dev/signup'
+                        ? '/login'
+                        : '/dev/login'
+                    }
+                  >
                     Login
-                  </a>
+                  </Link>
                 </span>
               </p>
             </div>

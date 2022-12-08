@@ -39,7 +39,7 @@ export default function Navbar() {
       <div className='topRight'>
         <ul className='topList'>
           <li id='topListItem'>
-            <Link className='link' to='/signup'>
+            <Link className='link' to='/login'>
               Sign in
             </Link>
           </li>
