@@ -13,7 +13,26 @@
       "postId": 1
     }
   ],
-  "profile": {
+  "profile": 
+    {
     "name": "typicode"
-  }
+  },
+ 
+  "articles": [
+     {
+           "id": 1,
+           "title": "Hello",
+           "image": "https://www.google.com/url?sa=i&url=https%3A%2F%2Funsplash.com%2Fs%2Fphotos%2Fwild-animal&psig=AOvVaw1ISDCg0WsvbE-pPcPFBDrJ&ust=1670531122271000&source=images&cd=vfe&ved=0CAwQjRxqFwoTCJCg2sKr6PsCFQAAAAAdAAAAABAE"
+     },
+     {
+      "id": 1,
+      "title": "Hello",
+      "image": "https://www.google.com/url?sa=i&url=https%3A%2F%2Funsplash.com%2Fs%2Fphotos%2Fwild-animal&psig=AOvVaw1ISDCg0WsvbE-pPcPFBDrJ&ust=1670531122271000&source=images&cd=vfe&ved=0CAwQjRxqFwoTCJCg2sKr6PsCFQAAAAAdAAAAABAE"
+    },
+    {
+      "id": 1,
+      "title": "Hello",
+      "image": "https://www.google.com/url?sa=i&url=https%3A%2F%2Funsplash.com%2Fs%2Fphotos%2Fwild-animal&psig=AOvVaw1ISDCg0WsvbE-pPcPFBDrJ&ust=1670531122271000&source=images&cd=vfe&ved=0CAwQjRxqFwoTCJCg2sKr6PsCFQAAAAAdAAAAABAE"
+    }
+        ]
 }
