@@ -1,12 +1,19 @@
 import React, { useState, useEffect } from 'react'
 import OneArticle from '../free-articles/OneArticle'
+import { useNavigate } from 'react-router-dom'
 
 function Article() {
   const [articles, setArticles] = useState([])
+  const navigate = useNavigate()
   useEffect(() => {
     fetch('https://devspedia-api-production.up.railway.app/articles')
       .then((r) => r.json())
       .then((data) => {
+        if (data.errors) {
+          console.log(data.errors)
+          return navigate('/login')
+        }
+
         console.log(data)
         setArticles(data)
       })
