@@ -31,7 +31,7 @@ Ian Kibet
 
 
 # Technology Used
-- CSS - which was used to style the pages incuding the left side    navigation bar.
+- CSS - which was used to style the pages .
 
 - React - building frontend dynamic and interactive pages where users can interact with the application.
 
