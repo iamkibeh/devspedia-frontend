@@ -1,7 +1,7 @@
 import React, { useState, useEffect } from 'react'
 import OneArticle from '../free-articles/OneArticle'
 
-function Article() {
+function Article({user}) {
   const [articles, setArticles] = useState([])
   // useEffect(() => {
   //   fetch('/articles')
@@ -12,8 +12,12 @@ function Article() {
   //     })
   // }, [])
 
+
+
   return (
+
     <>
+    {user?
       <div className='free-article-container'>
         <div className='free-articles-title'>
           <h2>Welcome to our articles pages</h2>
@@ -24,6 +28,7 @@ function Article() {
         }
       </div> */}
       </div>
+:<h1>UNAUTHORIZED!!!!!!!</h1>}
     </>
   )
 }
