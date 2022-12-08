@@ -1,15 +1,9 @@
-// import React,{ useState,useEffect } from 'react'
 import React, {useState, useEffect} from "react"
-import { useInView } from 'react-intersection-observer'
+import OneArticle from "../free-articles/OneArticle"
 
 
 function Article() {
-   
-    const { ref, inView } = useInView({
-      triggerOnce: true,
-      threshold: 0,
-      // rootMargin: '-200px'
-    })
+const [readMore, setReadMore] = useState(false)
 
   const [articles, setArticles] = useState([])
   useEffect(()=>{
@@ -19,23 +13,22 @@ function Article() {
       console.log(data)
       setArticles(data)
     })
-  },[])
+  },[readMore])
 
-const data=articles.map((article)=>(
-  <div className={inView ? 'articles-container' : null} ref={ref}>
-    <img src={article.featured_image} alt='Oops'/>
-    <h3 className='free-articles-title'>Title:{article.title}</h3>
-    <p>{article.content}</p>
-    <button className='show-more-button'>Likes:{article.likes}</button>
-  </div>
-))
-
-  return (
+return (
+  <>
     <div className='free-article-container'>
-      {data}
-{/* //<Article articles={console.log(articles)} /> */}
+      <div className='free-articles-title'>
+        <h2>Welcome to our articles pages</h2>
+      </div>
+      <div className='articles-container'>
+        {
+          articles.map(article => <OneArticle key={article.id} article = {article} setReadMore={setReadMore} readMore= {readMore}/> )
+        }
+      </div>
     </div>
-  );
+  </>
+)
 }
 
 export default Article
