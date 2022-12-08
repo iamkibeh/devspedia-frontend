@@ -3,17 +3,18 @@ import OneArticle from '../free-articles/OneArticle'
 
 function Article() {
   const [articles, setArticles] = useState([])
-  // useEffect(() => {
-  //   fetch('/articles')
-  //     .then((r) => r.json())
-  //     .then((data) => {
-  //       console.log(data)
-  //       setArticles(data)
-  //     })
-  // }, [])
+  useEffect(() => {
+    fetch('https://devspedia-api-production.up.railway.app/articles')
+      .then((r) => r.json())
+      .then((data) => {
+        console.log(data)
+        setArticles(data)
+      })
+  }, [])
 
   return (
     <>
+      {/* {articles.errors} */}
       <div className='free-article-container'>
         <div className='free-articles-title'>
           <h2>Welcome to our articles pages</h2>
