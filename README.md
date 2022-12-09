@@ -1,70 +1,73 @@
-# Getting Started with Create React App
+# DEVPEDIA APP
 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+## Portfolio by 
 
-## Available Scripts
+Gibson Bett
 
-In the project directory, you can run:
+James Njenga
 
-### `npm start`
+Ronny Bett
 
-Runs the app in the development mode.\
-Open [http://localhost:3000](http://localhost:3000) to view it in your browser.
+Maureen Kamau
 
-The page will reload when you make changes.\
-You may also see any lint errors in the console.
+Ian Kibet
 
-### `npm test`
+## Table of Contents
++ [Description](#description)
++ [Introduction](#introduction)
++ [Technology](#technology)
++ [License](#license)
++ [Authors Info](#author-Info)
 
-Launches the test runner in the interactive watch mode.\
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
+# Introduction
+- During our time at Moringa, we saw that junior devs need a platform for documenting their progress as they learn software engineering. For juniors who are just starting out, the already existing sites, like Medium, can be intimidating.
 
-### `npm run build`
 
-Builds the app for production to the `build` folder.\
-It correctly bundles React in production mode and optimizes the build for the best performance.
 
-The build is minified and the filenames include the hashes.\
-Your app is ready to be deployed!
 
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
+# Description
+- We developed a website application that offers students a place to publish articles and track their experience. This will allow us to establish an even wider community because any internet user will be able to subscribe to access more content.
 
-### `npm run eject`
 
-**Note: this is a one-way operation. Once you `eject`, you can't go back!**
 
-If you aren't satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
+# Technology Used
+- CSS - which was used to style the pages .
 
-Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you're on your own.
+- React - building frontend dynamic and interactive pages where users can interact with the application.
 
-You don't have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn't feel obligated to use this feature. However we understand that this tool wouldn't be useful if you couldn't customize it when you are ready for it.
+- ruby on rails -developing backend, where data are stored and fetched from the frontend.
 
-## Learn More
 
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
+# Link to the repository
+- https://github.com/iamkibeh/devspedia-frontend
+- https://github.com/iamkibeh/devspedia-backend
 
-To learn React, check out the [React documentation](https://reactjs.org/).
+# License
 
-### Code Splitting
+MIT License
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/code-splitting](https://facebook.github.io/create-react-app/docs/code-splitting)
+Copyright (c) 2022 Gibson Bett, Cynthia Ontiri, Rhoda Gachimu, Isir Malak, Milton Kihara and David Gitonga.
+Permission is hereby granted, free of charge, to any person obtaining a copy
+of this software and associated documentation files (the "Software"), to deal
+in the Software without restriction, including without limitation the rights
+to use, copy, modify, merge, publish, distribute, sublicense, and/or sell
+copies of the Software, and to permit persons to whom the Software is
+furnished to do so, subject to the following conditions:
+The above copyright notice and this permission notice shall be included in all
+copies or substantial portions of the Software.
 
-### Analyzing the Bundle Size
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size](https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size)
 
-### Making a Progressive Web App
+# Authors-info
+gibson.bett@student.moringaschool.com
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app](https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app)
+maureen.kamau@student.moringaschool.com
 
-### Advanced Configuration
+ronny.bett@student.moringaschool.com
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/advanced-configuration](https://facebook.github.io/create-react-app/docs/advanced-configuration)
+ian.kibett@student.moringaschool.com
 
-### Deployment
+james.njenga@student.moringaschool.com
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/deployment](https://facebook.github.io/create-react-app/docs/deployment)
 
-### `npm run build` fails to minify
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify](https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify)
