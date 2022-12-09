@@ -13,7 +13,8 @@ function Article({user}) {
   // }, [])
 
 
-
+const user1 = window.localStorage.getItem("user")
+console.log(user1)
   return (
 
     <>

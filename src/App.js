@@ -20,9 +20,13 @@ function App() {
   const [user, setUser] = useState(null);
 
   useEffect(() => {
-    fetch("http://127.0.0.1:3000/login").then((response) => {
+    fetch("https://devspedia-api-production.up.railway.app/login").then((response) => {
       if (response.ok) {
-        response.json().then((user) => setUser(user));
+        response.json().then((user) => {
+          
+          setUser(user)
+        window.localStorage.setItem("user", `${user.username}`)
+        });
       }
     });
   }, []);
@@ -32,8 +36,6 @@ function App() {
     // localStorage.setItem('user', `${user.username}`)
   }
   console.log(user)
-  const murife=localStorage.getItem("user")
-  console.log(murife)
   // function handleLogout() {
   //   setUser(null);
   // }
