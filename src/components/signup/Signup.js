@@ -3,52 +3,95 @@ import { useNavigate, Link } from 'react-router-dom'
 import './Signup.css'
 
 function Signup({ addNewUser }) {
-  const initFormState = {
-    firstname: '',
-    lastname: '',
-    username: '',
-    email: '',
-    password: '',
-  }
-
+  // const initFormState = {
+  //   firstname: '',
+  //   lastname: '',
+  //   username: '',
+  //   email: '',
+  //   password: '',
+  // }
+  const [formState, setFormState] = useState({})
   const navigate = useNavigate()
   const myRouteLocation = window.location.pathname
 
-  const [formState, setFormState] = useState(initFormState)
-  const [passConfirmation, setPassConfirmation] = useState({
-    passwordConfirm: '',
-  })
+  
+  // const [passConfirmation, setPassConfirmation] = useState({
+  //   passwordConfirm: '',
+  // })
 
-  const formChange = (e) => {
-    const { name, value } = e.target
-    setFormState((prevState) => ({ ...prevState, [name]: value }))
+  // const formChange = (e) => {
+  //   const { name, value } = e.target
+  //   setFormState((prevState) => ({ ...prevState, [name]: value }))
+  // }
+
+  // const passwordConfChange = (e) => {
+  //   const { name, value } = e.target
+  //   setPassConfirmation((prevState) => ({ ...prevState, [name]: value }))
+  // }
+
+
+
+  function formChange(e){
+    const value = e.target.value
+    const name  = e.target.name
+    setFormState({...formState, [name]:value})
   }
 
-  const passwordConfChange = (e) => {
-    const { name, value } = e.target
-    setPassConfirmation((prevState) => ({ ...prevState, [name]: value }))
-  }
+  console.log(formState)
 
-  const handleSubmit = async (e) => {
+
+
+
+
+
+
+
+  function handleSubmit(e){
     e.preventDefault()
-    if (formState.password !== passConfirmation.passwordConfirm) {
-      alert('Passwords do not match! Please try again.')
-    } else {
-      await fetch('http://localhost:9293/users', {
-        method: 'POST',
-        headers: {
-          'Content-Type': 'application/json',
-        },
-        body: JSON.stringify(formState),
-      })
-        .then((resp) => resp.json())
-        .then((newUser) => {
-          addNewUser(newUser)
-          setFormState(initFormState)
-          navigate('/')
-        })
-    }
+console.log(formState)
+fetch("https://devspedia-api-production.up.railway.app/signup",{
+  method: "POST",
+  headers:{
+    "Content-type": "application/json"
+  },
+body:JSON.stringify({
+username: formState.username,
+email: formState.email,
+password: formState.password,
+password_confirmation: formState.password_confirmation
+})
+}).then(r=>r.json()).then(data=>console.log(data))
+
+
+
+
+
+
+
+
+
+
+    // if (true) {
+    //   alert('Passwords do not match! Please try again.')
+    // } else {
+    //   await fetch('http://localhost:9293/users', {
+    //     method: 'POST',
+    //     headers: {
+    //       'Content-Type': 'application/json',
+    //     },
+    //     body: JSON.stringify(formState),
+    //   })
+    //     .then((resp) => resp.json())
+    //     .then((newUser) => {
+    //       addNewUser(newUser)
+    //       // setFormState(initFormState)
+    //       navigate('/')
+    //     })
+    // }
   }
+
+
+
 
   return (
     <>
@@ -60,16 +103,16 @@ function Signup({ addNewUser }) {
           <div className='devs-login-form'>
             <form onSubmit={handleSubmit} autoComplete='off'>
               <div className='login-inputs-container'>
-                <input
+                {/* <input
                   id='firstname'
                   type='text'
                   name='firstname'
                   placeholder='First Name'
                   value={formState.firstname}
-                  onChange={formChange}
+                  onChange={(e)=>formChange()}
                   required
-                />
-                <input
+                /> */}
+                {/* <input
                   id='lastname'
                   type='text'
                   name='lastname'
@@ -77,14 +120,14 @@ function Signup({ addNewUser }) {
                   value={formState.lastname}
                   onChange={formChange}
                   required
-                />
+                /> */}
                 <input
                   id='username'
                   type='text'
                   name='username'
                   placeholder='Username'
-                  value={formState.username}
-                  onChange={formChange}
+                  // value={formState.username}
+                  onChange={(e)=>formChange(e)}
                   required
                 />
                 <input
@@ -92,8 +135,8 @@ function Signup({ addNewUser }) {
                   type='email'
                   name='email'
                   placeholder='Email address'
-                  value={formState.email}
-                  onChange={formChange}
+                  // value={formState.email}
+                  onChange={(e)=>formChange(e)}
                   required
                 />
                 <input
@@ -101,17 +144,17 @@ function Signup({ addNewUser }) {
                   type='password'
                   name='password'
                   placeholder='Password'
-                  value={formState.password}
-                  onChange={formChange}
+                  // value={formState.password}
+                  onChange={(e)=>formChange(e)}
                   required
                 />
                 <input
                   id='passwordConfirm'
                   type='password'
-                  name='passwordConfirm'
+                  name='password_confirmation'
                   placeholder='Confirm password'
-                  value={passConfirmation.passwordConfirm}
-                  onChange={passwordConfChange}
+                  // value={passConfirmation.passwordConfirm}
+                  onChange={(e)=>formChange(e)}
                   required
                 />
               </div>
