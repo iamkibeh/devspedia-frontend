@@ -6,7 +6,7 @@ import TeamsPage from '../teamspage/TeamsPage'
 
 const Home = () => {
   const [ourDevs, setOurDevs] = useState([])
-  const articles = []
+  // const articles = []
 
   useEffect(() => {
     fetch('https://devspedia-api-production.up.railway.app/devs')
@@ -17,10 +17,10 @@ const Home = () => {
       })
   }, [])
 
-  for (let i = 0; i < ourDevs.length; i++) {
-    ourDevs[i].map((dev) => articles.push(dev))
-  }
-  const free = articles.filter((art) => art.id)
+  // for (let i = 0; i < ourDevs.length; i++) {
+  //   ourDevs[i].map((dev) => articles.push(dev))
+  // }
+  // const free = articles.filter((art) => art.id)
   return (
     <>
       <HeroSection />
