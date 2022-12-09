@@ -2,7 +2,8 @@ import { useNavigate, Link } from 'react-router-dom'
 import React, { useState } from 'react'
 import './Login.css'
 
-function Login({ handleLogin }) {
+function Login({ handleLogin, action = '' }) {
+  // console.log(handleLogin.handleLogin)
   // const initFormState = {
   //   username: '',
   //   password: '',
@@ -61,26 +62,42 @@ function Login({ handleLogin }) {
     const value = e.target.value
 
     setFormdata({ ...formData, [key]: value })
-
-    console.log()
   }
 
   function handleSubmit(e) {
     e.preventDefault()
-    fetch('https://devspedia-api-production.up.railway.app/login', {
-      method: 'POST',
-      headers: {
-        'Content-Type': 'application/json',
-      },
-      body: JSON.stringify(formData),
-    }).then((r) => {
-      if (r.ok) {
-        r.json().then((user) => {
-          handleLogin(user)
-          navigate('/articles')
+    console.log(action)
+
+    action
+      ? fetch('https://devspedia-api-production.up.railway.app/login-dev', {
+          method: 'POST',
+          headers: {
+            'Content-Type': 'application/json',
+          },
+          body: JSON.stringify(formData),
+        }).then((res) => {
+          if (res.ok) {
+            return res.json().then((data) => {
+              console.log(formData)
+              handleLogin.handleDevLogin(formData)
+              navigate('/dev/1/articles')
+            })
+          }
         })
-      }
-    })
+      : fetch('https://devspedia-api-production.up.railway.app/login', {
+          method: 'POST',
+          headers: {
+            'Content-Type': 'application/json',
+          },
+          body: JSON.stringify(formData),
+        }).then((r) => {
+          if (r.ok) {
+            r.json().then((user) => {
+              handleLogin(user)
+              navigate('/articles')
+            })
+          }
+        })
   }
 
   return (

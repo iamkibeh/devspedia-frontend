@@ -1,8 +1,19 @@
 import './navbar.css'
 import { Link } from 'react-router-dom'
+import { reactLocalStorage } from 'reactjs-localstorage'
 
 export default function Navbar() {
-  //   const user = false;
+  const user = reactLocalStorage.getObject('users').success
+
+  const handleLoginState = () => {
+    if (user) {
+      window.location.href = '/'
+      return reactLocalStorage.remove('users')
+    } else {
+      window.location.href = '/login'
+      // return reactLocalStorage.setObject
+    }
+  }
   return (
     <div className='top'>
       <div className='topLeft'>
@@ -39,8 +50,12 @@ export default function Navbar() {
       <div className='topRight'>
         <ul className='topList'>
           <li id='topListItem'>
-            <Link className='link' to='/login'>
-              Sign in
+            <Link
+              className='link'
+              // to={user ? '/' : '/login'}
+              onClick={handleLoginState}
+            >
+              {user ? 'Logout' : 'Login'}
             </Link>
           </li>
 

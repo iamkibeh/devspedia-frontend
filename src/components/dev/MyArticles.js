@@ -6,9 +6,9 @@ const MyArticles = () => {
     <>
       <h1>welcome to my articles</h1>
       <div className='articles-container'>
+        {/* <OneArticle />
         <OneArticle />
-        <OneArticle />
-        <OneArticle />
+        <OneArticle /> */}
       </div>
     </>
   )

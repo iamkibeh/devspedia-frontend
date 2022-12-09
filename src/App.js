@@ -44,11 +44,30 @@ function App() {
   //   setUser(null);
   // }
 
+  function handleDevLogin(dev) {
+    // console.log('you have handled a dev logged in call back')
+    setUser(dev)
+    fetch('https://devspedia-api-production.up.railway.app/devs').then(
+      (response) => {
+        if (response.ok) {
+          return response.json().then((data) => {
+            console.log(data)
+            const myDev = data.find((dev) => dev.username)
+            console.log(myDev)
+          })
+        }
+      }
+    )
+
+    // setUsers([...loggedInUsers, dev])
+    // reactLocalStorage.setObject('users', dev)
+  }
+
   return (
     <>
       <Navbar />
       <Routes>
-        <Route path='/' element={<Home />} />
+        <Route path='/' index element={<Home />} />
         <Route path='signup' element={<Signup />} />
         <Route path='login' element={<Login handleLogin={handleLogin} />} />
         <Route
@@ -65,12 +84,16 @@ function App() {
         <Route path='about' element={<AboutUs />} />
         <Route path='dev' element={<DevsDashboard />}>
           {/* <Route index element={<DevsDashboard />} /> */}
-          <Route path='login' element={<DevLogin />} />
+          <Route
+            path='login'
+            element={<DevLogin handleDevLogin={handleDevLogin} />}
+          />
           <Route path='signup' element={<DevSignup />} />
           <Route path=':id/dashboard/profile' element={<Profile />} />
           <Route path=':id/articles/create' element={<DevArticles />} />
           <Route path=':id/articles' element={<MyArticles />} />
         </Route>
+        <Route path='*' element={<Home />} />
       </Routes>
       <Footer />
     </>
