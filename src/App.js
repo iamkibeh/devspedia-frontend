@@ -1,6 +1,6 @@
 import Login from './components/login/Login'
 import Signup from './components/signup/Signup'
-import React from 'react'
+import React, { useState } from 'react'
 import Footer from './components/footer/Footer'
 import Navbar from './components/navbar/Navbar'
 import { Routes, Route } from 'react-router-dom'
@@ -14,16 +14,41 @@ import DevArticles from './components/dev/DevArticles'
 import MyArticles from './components/dev/MyArticles'
 import DevLogin from './components/dev/DevLogin'
 import DevSignup from './components/dev/DevSignup'
+import { useEffect } from 'react'
 
 function App() {
+  const [user, setUser] = useState(null);
+
+  useEffect(() => {
+    fetch("https://devspedia-api-production.up.railway.app/login").then((response) => {
+      if (response.ok) {
+        response.json().then((user) => {
+          
+          setUser(user)
+        window.localStorage.setItem("user", `${user.username}`)
+        });
+      }
+    });
+  }, []);
+
+  function handleLogin(user) {
+    setUser(user);
+    // localStorage.setItem('user', `${user.username}`)
+  }
+  console.log(user)
+  // function handleLogout() {
+  //   setUser(null);
+  // }
+
   return (
     <>
       <Navbar />
       <Routes>
         <Route path='/' element={<Home />} />
         <Route path='signup' element={<Signup />} />
-        <Route path='login' element={<Login />} />
-        <Route path='articles' element={<Article />} />
+        <Route path='login' element={<Login handleLogin={handleLogin}/>} />
+        <Route path='articles' element={<Article user={user}/>} />
+  
         <Route path='about' element={<AboutUs />} />
         <Route path='dev' element={<DevsDashboard />}>
           {/* <Route index element={<DevsDashboard />} /> */}

@@ -2,46 +2,92 @@ import { useNavigate, Link } from 'react-router-dom'
 import React, { useState } from 'react'
 import './Login.css'
 
-function Login({ setLoggedIn }) {
-  const initFormState = {
-    username: '',
-    password: '',
-  }
+function Login({handleLogin }) {
+  // const initFormState = {
+  //   username: '',
+  //   password: '',
+  // }
+  // const [user, setUser]=useState({})
 
-  const [formState, setFormState] = useState(initFormState)
+  // comment 
+
+  // const [formState, setFormState] = useState({})
+  // const [username, setUsername] = useState("");
+  // const [password, setPassword] = useState("");
+
+  // const [formData,setFormdata]=useState({username:"",password:""})
+
+  const [formData,setFormdata]=useState({})
+
   const myRoute = window.location.pathname
 
   const navigate = useNavigate()
 
-  const formChange = (e) => {
-    const { name, value } = e.target
-    setFormState((prevState) => ({ ...prevState, [name]: value }))
+  function handleInput(e) {
+    const key = e.target.name
+    const value = e.target.value
+
+    setFormdata({ ...formData, [key]: value })
+
+    console.log()
+  }
+  console.log(formData)
+
+  // const handleSubmit = async (e) => {
+  //   console.log(formState)
+  //   e.preventDefault()
+  //   await fetch('http://127.0.0.1:3000/login', {
+  //     method: 'POST',
+  //     headers: {
+  //       'Content-Type': 'application/json',
+  //     },
+  //     body: JSON.stringify(formState),
+  //   })
+  //     .then((resp) => resp.json())
+  //     .then((user) => {
+  
+
+  //       setLoggedIn(user)
+  //       // setFormState(initFormState)
+  //       localStorage.setItem('user', user)
+  //       console.log(user)
+  //       navigate('/articles')
+
+  //       // if (user.error) {
+  //       //   alert(user.error)
+  //       // } else {
+  //       //   setLoggedIn(user)
+  //       //   // setFormState(initFormState)
+  //       //   localStorage.setItem('user', user)
+  //       //   console.log(user)
+  //       //   navigate('/articles')
+  //       // }
+
+  //     })
+
+  
+  // }
+  function handleSubmit(e) {
+    e.preventDefault();
+    fetch("https://devspedia-api-production.up.railway.app/login", {
+      method: "POST",
+      headers: {
+        "Content-Type": "application/json",
+      },
+      body: JSON.stringify(formData),
+    }).then((r) => {
+      if (r.ok) {
+        r.json().then((user) =>{
+          handleLogin(user)
+          navigate('/articles')
+        })
+
+      }
+    });
+    
   }
 
-  const handleSubmit = async (e) => {
-    console.log(formState)
-    e.preventDefault()
-    await fetch('http://localhost:9293/users/login', {
-      method: 'POST',
-      headers: {
-        'Content-Type': 'application/json',
-      },
-      body: JSON.stringify(formState),
-    })
-      .then((resp) => resp.json())
-      .then((user) => {
-        console.log(user)
-        if (user.error) {
-          alert(user.error)
-        } else {
-          setLoggedIn(user)
-          setFormState(initFormState)
-          localStorage.setItem('user', user)
-          console.log(user)
-          navigate('/home')
-        }
-      })
-  }
+  console.log(formData)
 
   return (
     <>
@@ -54,19 +100,16 @@ function Login({ setLoggedIn }) {
             <form onSubmit={handleSubmit} autoComplete='off'>
               <div className='login-inputs-container'>
                 <input
-                  type='text'
-                  name='username'
-                  placeholder='Username'
-                  value={formState.username}
-                  onChange={formChange}
-                  required
+                  type="text"
+                  name="username"
+                  id="username"
+                  onChange={(e) => { handleInput(e) }}
                 />
                 <input
                   type='password'
-                  name='password'
-                  placeholder='Password'
-                  value={formState.password}
-                  onChange={formChange}
+                  name="password"
+                  id="username"
+                  onChange={(e) => { handleInput(e) }}
                   required
                 />
               </div>

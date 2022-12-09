@@ -2,7 +2,7 @@ import React, { useState, useEffect } from 'react'
 import OneArticle from '../free-articles/OneArticle'
 import { useNavigate } from 'react-router-dom'
 
-function Article() {
+function Article({user}) {
   const [articles, setArticles] = useState([])
   const navigate = useNavigate()
   useEffect(() => {
@@ -19,9 +19,14 @@ function Article() {
       })
   }, [])
 
+
+const user1 = window.localStorage.getItem("user")
+console.log(user1)
   return (
+
     <>
-      {/* {articles.errors} */}
+
+    {user?
       <div className='free-article-container'>
         <div className='free-articles-title'>
           <h2>Welcome to our articles pages</h2>
@@ -32,6 +37,7 @@ function Article() {
         }
       </div> */}
       </div>
+:<h1>UNAUTHORIZED!!!!!!!</h1>}
     </>
   )
 }
