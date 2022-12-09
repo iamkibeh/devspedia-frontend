@@ -1,11 +1,11 @@
 import React from 'react'
 import Login from '../login/Login'
 
-const DevLogin = () => {
+const DevLogin = (handleDevLogin) => {
   return (
     <>
       <div className='dev-login-container'>
-        <Login />
+        <Login handleLogin={handleDevLogin} action='devLogin' />
       </div>
     </>
   )

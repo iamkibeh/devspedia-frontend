@@ -15,49 +15,86 @@ import MyArticles from './components/dev/MyArticles'
 import DevLogin from './components/dev/DevLogin'
 import DevSignup from './components/dev/DevSignup'
 import { useEffect } from 'react'
+import useMemoryState from './components/local-storage/UseInMemmoryState'
+import { reactLocalStorage } from 'reactjs-localstorage'
 
 function App() {
-  const [user, setUser] = useState(null);
+  const [user, setUser] = useState(null)
+  const [loggedInUsers, setUsers] = useMemoryState('users', [])
 
   useEffect(() => {
-    fetch("https://devspedia-api-production.up.railway.app/login").then((response) => {
-      if (response.ok) {
-        response.json().then((user) => {
-          
-          setUser(user)
-        window.localStorage.setItem("user", `${user.username}`)
-        });
+    fetch('https://devspedia-api-production.up.railway.app/login').then(
+      (response) => {
+        if (response.ok) {
+          response.json().then((user) => {
+            setUser(user)
+            window.localStorage.setItem('user', `${user.username}`)
+          })
+        }
       }
-    });
-  }, []);
+    )
+  }, [])
 
   function handleLogin(user) {
-    setUser(user);
-    // localStorage.setItem('user', `${user.username}`)
+    setUser(user)
+    setUsers([...loggedInUsers, user])
+    reactLocalStorage.setObject('users', user)
   }
-  console.log(user)
   // function handleLogout() {
   //   setUser(null);
   // }
+
+  function handleDevLogin(dev) {
+    // console.log('you have handled a dev logged in call back')
+    setUser(dev)
+    fetch('https://devspedia-api-production.up.railway.app/devs').then(
+      (response) => {
+        if (response.ok) {
+          return response.json().then((data) => {
+            console.log(data)
+            const myDev = data.find((dev) => dev.username)
+            console.log(myDev)
+          })
+        }
+      }
+    )
+
+    // setUsers([...loggedInUsers, dev])
+    // reactLocalStorage.setObject('users', dev)
+  }
 
   return (
     <>
       <Navbar />
       <Routes>
-        <Route path='/' element={<Home />} />
+        <Route path='/' index element={<Home />} />
         <Route path='signup' element={<Signup />} />
-        <Route path='login' element={<Login handleLogin={handleLogin}/>} />
-        <Route path='articles' element={<Article user={user}/>} />
-  
+        <Route path='login' element={<Login handleLogin={handleLogin} />} />
+        <Route
+          path='articles'
+          element={
+            <Article
+              user={user}
+              loggedInUsers={loggedInUsers}
+              handleLogin={handleLogin}
+            />
+          }
+        />
+
         <Route path='about' element={<AboutUs />} />
-        <Route path='dev' element={<DevsDashboard />}>
+        <Route path='dev' element={<DevsDashboard user={user} />}>
           {/* <Route index element={<DevsDashboard />} /> */}
-          <Route path='login' element={<DevLogin />} />
+          <Route
+            path='login'
+            index
+            element={<DevLogin handleDevLogin={handleDevLogin} />}
+          />
           <Route path='signup' element={<DevSignup />} />
           <Route path=':id/dashboard/profile' element={<Profile />} />
           <Route path=':id/articles/create' element={<DevArticles />} />
           <Route path=':id/articles' element={<MyArticles />} />
         </Route>
+        <Route path='*' element={<Home />} />
       </Routes>
       <Footer />
     </>

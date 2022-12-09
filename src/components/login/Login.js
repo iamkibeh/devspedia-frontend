@@ -2,14 +2,15 @@ import { useNavigate, Link } from 'react-router-dom'
 import React, { useState } from 'react'
 import './Login.css'
 
-function Login({handleLogin }) {
+function Login({ handleLogin, action = '' }) {
+  // console.log(handleLogin.handleLogin)
   // const initFormState = {
   //   username: '',
   //   password: '',
   // }
   // const [user, setUser]=useState({})
 
-  // comment 
+  // comment
 
   // const [formState, setFormState] = useState({})
   // const [username, setUsername] = useState("");
@@ -17,21 +18,11 @@ function Login({handleLogin }) {
 
   // const [formData,setFormdata]=useState({username:"",password:""})
 
-  const [formData,setFormdata]=useState({})
+  const [formData, setFormdata] = useState({})
 
   const myRoute = window.location.pathname
 
   const navigate = useNavigate()
-
-  function handleInput(e) {
-    const key = e.target.name
-    const value = e.target.value
-
-    setFormdata({ ...formData, [key]: value })
-
-    console.log()
-  }
-  console.log(formData)
 
   // const handleSubmit = async (e) => {
   //   console.log(formState)
@@ -45,7 +36,6 @@ function Login({handleLogin }) {
   //   })
   //     .then((resp) => resp.json())
   //     .then((user) => {
-  
 
   //       setLoggedIn(user)
   //       // setFormState(initFormState)
@@ -65,29 +55,50 @@ function Login({handleLogin }) {
 
   //     })
 
-  
   // }
-  function handleSubmit(e) {
-    e.preventDefault();
-    fetch("https://devspedia-api-production.up.railway.app/login", {
-      method: "POST",
-      headers: {
-        "Content-Type": "application/json",
-      },
-      body: JSON.stringify(formData),
-    }).then((r) => {
-      if (r.ok) {
-        r.json().then((user) =>{
-          handleLogin(user)
-          navigate('/articles')
-        })
 
-      }
-    });
-    
+  function handleInput(e) {
+    const key = e.target.name
+    const value = e.target.value
+
+    setFormdata({ ...formData, [key]: value })
   }
 
-  console.log(formData)
+  function handleSubmit(e) {
+    e.preventDefault()
+    console.log(action)
+
+    action
+      ? fetch('https://devspedia-api-production.up.railway.app/login-dev', {
+          method: 'POST',
+          headers: {
+            'Content-Type': 'application/json',
+          },
+          body: JSON.stringify(formData),
+        }).then((res) => {
+          if (res.ok) {
+            return res.json().then((data) => {
+              console.log(formData)
+              handleLogin.handleDevLogin(formData)
+              navigate('/dev/1/articles')
+            })
+          }
+        })
+      : fetch('https://devspedia-api-production.up.railway.app/login', {
+          method: 'POST',
+          headers: {
+            'Content-Type': 'application/json',
+          },
+          body: JSON.stringify(formData),
+        }).then((r) => {
+          if (r.ok) {
+            r.json().then((user) => {
+              handleLogin(user)
+              navigate('/articles')
+            })
+          }
+        })
+  }
 
   return (
     <>
@@ -100,17 +111,23 @@ function Login({handleLogin }) {
             <form onSubmit={handleSubmit} autoComplete='off'>
               <div className='login-inputs-container'>
                 <input
-                  type="text"
-                  name="username"
-                  id="username"
-                  onChange={(e) => { handleInput(e) }}
+                  type='text'
+                  name='username'
+                  id='username'
+                  onChange={(e) => {
+                    handleInput(e)
+                  }}
+                  placeholder='Username'
                 />
                 <input
                   type='password'
-                  name="password"
-                  id="username"
-                  onChange={(e) => { handleInput(e) }}
+                  name='password'
+                  id='password'
+                  onChange={(e) => {
+                    handleInput(e)
+                  }}
                   required
+                  placeholder='Password'
                 />
               </div>
               <div className='logins-button-form'>
