@@ -14,8 +14,6 @@ const OneArticle = ({ article }) => {
   } = article
   const [readMore, setReadMore] = useState(false)
 
-  console.log(article)
-
   return (
     <div className='article-card'>
       <div className='article-image'>

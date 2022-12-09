@@ -1,16 +1,23 @@
 import React, { useState, useEffect } from 'react'
 import OneArticle from '../free-articles/OneArticle'
+import { useNavigate } from 'react-router-dom'
 
 function Article({user}) {
   const [articles, setArticles] = useState([])
-  // useEffect(() => {
-  //   fetch('/articles')
-  //     .then((r) => r.json())
-  //     .then((data) => {
-  //       console.log(data)
-  //       setArticles(data)
-  //     })
-  // }, [])
+  const navigate = useNavigate()
+  useEffect(() => {
+    fetch('https://devspedia-api-production.up.railway.app/articles')
+      .then((r) => r.json())
+      .then((data) => {
+        if (data.errors) {
+          console.log(data.errors)
+          return navigate('/login')
+        }
+
+        console.log(data)
+        setArticles(data)
+      })
+  }, [])
 
 
 const user1 = window.localStorage.getItem("user")
@@ -18,6 +25,7 @@ console.log(user1)
   return (
 
     <>
+
     {user?
       <div className='free-article-container'>
         <div className='free-articles-title'>

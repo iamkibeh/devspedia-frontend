@@ -17,22 +17,23 @@ import DevSignup from './components/dev/DevSignup'
 import { useEffect } from 'react'
 
 function App() {
-  const [user, setUser] = useState(null);
+  const [user, setUser] = useState(null)
 
   useEffect(() => {
-    fetch("https://devspedia-api-production.up.railway.app/login").then((response) => {
-      if (response.ok) {
-        response.json().then((user) => {
-          
-          setUser(user)
-        window.localStorage.setItem("user", `${user.username}`)
-        });
+    fetch('https://devspedia-api-production.up.railway.app/login').then(
+      (response) => {
+        if (response.ok) {
+          response.json().then((user) => {
+            setUser(user)
+            window.localStorage.setItem('user', `${user.username}`)
+          })
+        }
       }
-    });
-  }, []);
+    )
+  }, [])
 
   function handleLogin(user) {
-    setUser(user);
+    setUser(user)
     // localStorage.setItem('user', `${user.username}`)
   }
   console.log(user)
@@ -46,12 +47,13 @@ function App() {
       <Routes>
         <Route path='/' element={<Home />} />
         <Route path='signup' element={<Signup />} />
-        <Route path='login' element={<Login handleLogin={handleLogin}/>} />
-        <Route path='articles' element={<Article user={user}/>} />
-  
+        <Route path='login' element={<Login handleLogin={handleLogin} />} />
+        <Route path='articles' element={<Article user={user} />} />
+
         <Route path='about' element={<AboutUs />} />
         <Route path='dev' element={<DevsDashboard />}>
           {/* <Route index element={<DevsDashboard />} /> */}
+
           <Route path='login' element={<DevLogin />} />
           <Route path='signup' element={<DevSignup />} />
           <Route path=':id/dashboard/profile' element={<Profile />} />

@@ -2,14 +2,14 @@ import { useNavigate, Link } from 'react-router-dom'
 import React, { useState } from 'react'
 import './Login.css'
 
-function Login({handleLogin }) {
+function Login({ handleLogin }) {
   // const initFormState = {
   //   username: '',
   //   password: '',
   // }
   // const [user, setUser]=useState({})
 
-  // comment 
+  // comment
 
   // const [formState, setFormState] = useState({})
   // const [username, setUsername] = useState("");
@@ -17,7 +17,7 @@ function Login({handleLogin }) {
 
   // const [formData,setFormdata]=useState({username:"",password:""})
 
-  const [formData,setFormdata]=useState({})
+  const [formData, setFormdata] = useState({})
 
   const myRoute = window.location.pathname
 
@@ -45,7 +45,6 @@ function Login({handleLogin }) {
   //   })
   //     .then((resp) => resp.json())
   //     .then((user) => {
-  
 
   //       setLoggedIn(user)
   //       // setFormState(initFormState)
@@ -65,26 +64,23 @@ function Login({handleLogin }) {
 
   //     })
 
-  
   // }
   function handleSubmit(e) {
-    e.preventDefault();
-    fetch("https://devspedia-api-production.up.railway.app/login", {
-      method: "POST",
+    e.preventDefault()
+    fetch('https://devspedia-api-production.up.railway.app/login', {
+      method: 'POST',
       headers: {
-        "Content-Type": "application/json",
+        'Content-Type': 'application/json',
       },
       body: JSON.stringify(formData),
     }).then((r) => {
       if (r.ok) {
-        r.json().then((user) =>{
+        r.json().then((user) => {
           handleLogin(user)
           navigate('/articles')
         })
-
       }
-    });
-    
+    })
   }
 
   console.log(formData)
@@ -100,16 +96,22 @@ function Login({handleLogin }) {
             <form onSubmit={handleSubmit} autoComplete='off'>
               <div className='login-inputs-container'>
                 <input
-                  type="text"
-                  name="username"
-                  id="username"
-                  onChange={(e) => { handleInput(e) }}
+                  type='text'
+                  name='username'
+                  id='username'
+                  placeholder='Username'
+                  onChange={(e) => {
+                    handleInput(e)
+                  }}
                 />
                 <input
                   type='password'
-                  name="password"
-                  id="username"
-                  onChange={(e) => { handleInput(e) }}
+                  name='password'
+                  id='password'
+                  placeholder='Password'
+                  onChange={(e) => {
+                    handleInput(e)
+                  }}
                   required
                 />
               </div>
