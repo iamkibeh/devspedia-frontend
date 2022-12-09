@@ -82,10 +82,11 @@ function App() {
         />
 
         <Route path='about' element={<AboutUs />} />
-        <Route path='dev' element={<DevsDashboard />}>
+        <Route path='dev' element={<DevsDashboard user={user} />}>
           {/* <Route index element={<DevsDashboard />} /> */}
           <Route
             path='login'
+            index
             element={<DevLogin handleDevLogin={handleDevLogin} />}
           />
           <Route path='signup' element={<DevSignup />} />
