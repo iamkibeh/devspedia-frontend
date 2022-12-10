@@ -17,6 +17,7 @@ import DevSignup from './components/dev/DevSignup'
 import { useEffect } from 'react'
 import { reactLocalStorage } from 'reactjs-localstorage'
 import ContactUs from './components/contact-us/ContactUs'
+import TeamsPage from './components/teamspage/TeamsPage'
 
 function App() {
   const [user, setUser] = useState(null)
@@ -73,29 +74,10 @@ function App() {
         }
       }
     )
-
+    }
 
 	return (
 		<>
-			<Navbar />
-			<Routes>
-				<Route path="/" index element={<Home />} />
-				<Route path="signup" element={<Signup />} />
-				<Route path="login" element={<Login handleLogin={handleLogin} />} />
-				<Route
-					path="articles"
-					element={
-						<Article
-							user={user}
-							loggedInUsers={loggedInUsers}
-							handleLogin={handleLogin}
-						/>
-					}
-				/>
-
-
-  return (
-    <>
       {window.location.pathname !== '/dev' && <Navbar />}
       <Routes>
         <Route path='/' index element={<Home />} />
@@ -105,8 +87,7 @@ function App() {
           path='articles'
           element={<Article user={user} handleLogin={handleLogin} />}
         />
-
-        <Route path='about' element={<AboutUs />} />
+        <Route path='about' element={<TeamsPage />} />
         <Route path='contact_us' element={<ContactUs />} />
         <Route path='dev' element={<DevsDashboard user={user} />}>
           {/* <Route index element={<DevsDashboard />} /> */}
