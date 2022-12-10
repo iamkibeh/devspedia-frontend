@@ -15,7 +15,7 @@ function Article({ user, loggedInUsers, handleLogin }) {
 	console.log(token);
 
 	useEffect(() => {
-		fetch("https://devspedia-api-production.up.railway.app/articles", {
+		fetch("http://127.0.0.1:3000/articles", {
 			method: "GET",
 			headers: {
 				"content-type": "application/json",

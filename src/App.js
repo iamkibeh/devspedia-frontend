@@ -18,7 +18,6 @@ import { useEffect } from "react";
 import useMemoryState from "./components/local-storage/UseInMemmoryState";
 import { reactLocalStorage } from "reactjs-localstorage";
 import ContactUs from "./components/contact-us/ContactUs";
-import Showonearticle from "./components/free-articles/Showonearticle";
 
 function App() {
 	const [user, setUser] = useState(null);
@@ -63,17 +62,15 @@ function App() {
 	function handleDevLogin(dev) {
 		// console.log('you have handled a dev logged in call back')
 		setUser(dev);
-		fetch("https://devspedia-api-production.up.railway.app/devs").then(
-			(response) => {
-				if (response.ok) {
-					return response.json().then((data) => {
-						console.log(data);
-						const myDev = data.find((dev) => dev.username);
-						console.log(myDev);
-					});
-				}
+		fetch("http://127.0.0.1:3000/devs").then((response) => {
+			if (response.ok) {
+				return response.json().then((data) => {
+					console.log(data);
+					const myDev = data.find((dev) => dev.username);
+					console.log(myDev);
+				});
 			}
-		);
+		});
 
 		// setUsers([...loggedInUsers, dev])
 		// reactLocalStorage.setObject('users', dev)
@@ -86,6 +83,7 @@ function App() {
 				<Route path="/" index element={<Home />} />
 				<Route path="signup" element={<Signup />} />
 				<Route path="login" element={<Login handleLogin={handleLogin} />} />
+
 				<Route
 					path="articles"
 					element={
