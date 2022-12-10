@@ -15,45 +15,44 @@ import MyArticles from './components/dev/MyArticles'
 import DevLogin from './components/dev/DevLogin'
 import DevSignup from './components/dev/DevSignup'
 import { useEffect } from 'react'
-import useMemoryState from './components/local-storage/UseInMemmoryState'
 import { reactLocalStorage } from 'reactjs-localstorage'
 import ContactUs from './components/contact-us/ContactUs'
 
 function App() {
   const [user, setUser] = useState(null)
-  const [loggedInUsers, setUsers] = useMemoryState('users', [])
 
-  const subId  = parseInt(localStorage.getItem("user"))
+  const subId = parseInt(localStorage.getItem('user'))
 
-  const token=localStorage.getItem("jwt")
+  const token = localStorage.getItem('jwt')
 
   useEffect(() => {
-    fetch(`http://127.0.0.1:3000/subscribers/${subId}`,{
-      method:"GET",
-      headers:{
-        "content-type":"application/json",
-        Authorization: `Bearer ${token}`
+    fetch(
+      `https://devspedia-api-production.up.railway.app/subscribers/${subId}`,
+      {
+        method: 'GET',
+        headers: {
+          'content-type': 'application/json',
+          Authorization: `Bearer ${token}`,
+        },
       }
-    }).then(
-      (response) => {
-        if (response.ok) {
-          response.json().then((user) => {
+    ).then((response) => {
+      if (response.ok) {
+        response
+          .json()
+          .then((user) => {
             setUser(user)
             console.log(user.username)
             // window.localStorage.setItem('user', `${user.username}`)
           })
-          .catch(error=>{
+          .catch((error) => {
             console.log(error)
           })
-        }
       }
-    )
+    })
   }, [subId])
-
 
   function handleLogin(user) {
     setUser(user)
-    setUsers([...loggedInUsers, user])
     reactLocalStorage.setObject('users', user)
   }
   // function handleLogout() {
@@ -69,7 +68,7 @@ function App() {
           return response.json().then((data) => {
             console.log(data)
             const myDev = data.find((dev) => dev.username)
-            console.log(myDev)
+            // console.log(myDev)
           })
         }
       }
@@ -81,20 +80,14 @@ function App() {
 
   return (
     <>
-      <Navbar />
+      {window.location.pathname !== '/dev' && <Navbar />}
       <Routes>
         <Route path='/' index element={<Home />} />
         <Route path='signup' element={<Signup />} />
         <Route path='login' element={<Login handleLogin={handleLogin} />} />
         <Route
           path='articles'
-          element={
-            <Article
-              user={user}
-              loggedInUsers={loggedInUsers}
-              handleLogin={handleLogin}
-            />
-          }
+          element={<Article user={user} handleLogin={handleLogin} />}
         />
 
         <Route path='about' element={<AboutUs />} />

@@ -3,41 +3,39 @@ import { reactLocalStorage } from 'reactjs-localstorage'
 import OneArticle from '../free-articles/OneArticle'
 import Login from '../login/Login'
 
-function Article({ user, loggedInUsers, handleLogin }) {
+function Article({ user, handleLogin }) {
   const [articles, setArticles] = useState([])
+  const [loading, setLoading] = useState(true)
 
   // const isLoggedIn = reactLocalStorage.getObject('users').success
   console.log(user)
 
-  const token=localStorage.getItem("jwt")
-  const username=localStorage.getItem("user")
-  console.log(username);
+  const token = localStorage.getItem('jwt')
+  const username = localStorage.getItem('user')
+  console.log(username)
   console.log(token)
 
-
   useEffect(() => {
-      fetch('http://127.0.0.1:3000/articles',{
-        method:"GET",
-        headers:{
-           "content-type":"application/json",
-           Authorization: `Bearer ${token} `
-        }
+    fetch('https://devspedia-api-production.up.railway.app/articles', {
+      method: 'GET',
+      headers: {
+        'content-type': 'application/json',
+        Authorization: `Bearer ${token} `,
+      },
+    })
+      .then((r) => r.json())
+      .then((data) => {
+        console.log(data)
+        setArticles(data)
+        setLoading(false)
       })
-        .then((r) => r.json())
-        .then((data) => {
-          console.log(data)
-          setArticles(data)
-        })
-        .catch(error=>{
-
-          console.log(error)
-        })
-
-        
+      .catch((error) => {
+        console.log(error)
+      })
   }, [])
   console.log(reactLocalStorage.getObject('users'))
   // console.log(isLoggedIn)
-  const subId  =  localStorage.getItem("user")
+  const subId = localStorage.getItem('user')
 
   console.log(subId)
 
@@ -46,14 +44,18 @@ function Article({ user, loggedInUsers, handleLogin }) {
       {token ? (
         <div className='free-article-container'>
           <div className='free-articles-title'>
-            <h2>welcome {user.username}</h2>
-            <h2>Here are our articles</h2>
+            {user && <p className='welcome-user'>welcome {user.username}</p>}
+            <h2>Our articles</h2>
           </div>
           <div className='articles-container'>
-        {
-          articles.map(article => <OneArticle key={article.id} article = {article}/> )
-        }
-      </div>
+            {loading ? (
+              <div className='loading'>Loading...</div>
+            ) : (
+              articles.map((article) => (
+                <OneArticle key={article.id} article={article} />
+              ))
+            )}
+          </div>
         </div>
       ) : (
         <>
