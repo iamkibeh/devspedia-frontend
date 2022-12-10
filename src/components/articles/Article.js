@@ -5,25 +5,49 @@ import Login from '../login/Login'
 
 function Article({ user, loggedInUsers, handleLogin }) {
   const [articles, setArticles] = useState([])
-  // const [loggedIn, setIsLoggedIn] = useState(false)
-  console.log(loggedInUsers)
+
+  // const isLoggedIn = reactLocalStorage.getObject('users').success
+  console.log(user)
+
+  const token=localStorage.getItem("jwt")
+  const username=localStorage.getItem("user")
+  console.log(username);
+  console.log(token)
+
 
   useEffect(() => {
-    fetch('/articles')
-      .then((r) => r.json())
-      .then((data) => {
-        console.log(data)
-        setArticles(data)
+      fetch('http://127.0.0.1:3000/articles',{
+        method:"GET",
+        headers:{
+           "content-type":"application/json",
+           Authorization: `Bearer ${token} `
+        }
       })
+        .then((r) => r.json())
+        .then((data) => {
+          console.log(data)
+          setArticles(data)
+        })
+        .catch(error=>{
+
+          console.log(error)
+        })
+
+        
   }, [])
-  console.log(reactLocalStorage.getObject('users').success)
+  console.log(reactLocalStorage.getObject('users'))
+  // console.log(isLoggedIn)
+  const subId  =  localStorage.getItem("user")
+
+  console.log(subId)
 
   return (
     <>
-      {reactLocalStorage.getObject('users').success ? (
+      {token ? (
         <div className='free-article-container'>
           <div className='free-articles-title'>
-            <h2> {reactLocalStorage.getObject('users').success}</h2>
+            <h2>welcome {user.username}</h2>
+            <h2>Here are our articles</h2>
           </div>
           <div className='articles-container'>
         {

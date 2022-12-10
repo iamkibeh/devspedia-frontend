@@ -3,20 +3,7 @@ import React, { useState } from 'react'
 import './Login.css'
 
 function Login({ handleLogin, action = '' }) {
-  // console.log(handleLogin.handleLogin)
-  // const initFormState = {
-  //   username: '',
-  //   password: '',
-  // }
-  // const [user, setUser]=useState({})
-
-  // comment
-
-  // const [formState, setFormState] = useState({})
-  // const [username, setUsername] = useState("");
-  // const [password, setPassword] = useState("");
-
-  // const [formData,setFormdata]=useState({username:"",password:""})
+  const [errors, setErrors] = useState('')
 
   const [formData, setFormdata] = useState({})
 
@@ -69,7 +56,7 @@ function Login({ handleLogin, action = '' }) {
     console.log(action)
 
     action
-      ? fetch('https://devspedia-api-production.up.railway.app/login-dev', {
+      ? fetch('http://127.0.0.1:3000/logindev', {
           method: 'POST',
           headers: {
             'Content-Type': 'application/json',
@@ -84,7 +71,7 @@ function Login({ handleLogin, action = '' }) {
             })
           }
         })
-      : fetch('https://devspedia-api-production.up.railway.app/login', {
+      : fetch('http://127.0.0.1:3000/login-subscriber', {
           method: 'POST',
           headers: {
             'Content-Type': 'application/json',
@@ -93,13 +80,24 @@ function Login({ handleLogin, action = '' }) {
         }).then((r) => {
           if (r.ok) {
             r.json().then((user) => {
+              console.log('i have logged in')
+              console.log(r.headers)
               handleLogin(user)
+              localStorage.setItem("jwt", user.jwt)
+              localStorage.setItem("user",`${user.subscriber.id}`)
               navigate('/articles')
             })
+          } else {
+            r.json().then((err) => setErrors(err.error))
           }
         })
   }
 
+  const token = localStorage.getItem("jwt")
+  const subId  =  localStorage.getItem("user")
+
+      console.log(token);
+      console.log(subId);
   return (
     <>
       <div className='login-parent-container'>
@@ -136,6 +134,9 @@ function Login({ handleLogin, action = '' }) {
             </form>
           </div>
           <div className='login-footer'>
+            <p style={{ color: 'red', fontStyle: 'italic' }}>
+              {errors && errors} !
+            </p>
             <div className='register'>
               <p>
                 Don't have an account?

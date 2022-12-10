@@ -23,18 +23,33 @@ function App() {
   const [user, setUser] = useState(null)
   const [loggedInUsers, setUsers] = useMemoryState('users', [])
 
+  const subId  = parseInt(localStorage.getItem("user"))
+
+  const token=localStorage.getItem("jwt")
+
   useEffect(() => {
-    fetch('https://devspedia-api-production.up.railway.app/login').then(
+    fetch(`http://127.0.0.1:3000/subscribers/${subId}`,{
+      method:"GET",
+      headers:{
+        "content-type":"application/json",
+        Authorization: `Bearer ${token}`
+      }
+    }).then(
       (response) => {
         if (response.ok) {
           response.json().then((user) => {
             setUser(user)
-            window.localStorage.setItem('user', `${user.username}`)
+            console.log(user.username)
+            // window.localStorage.setItem('user', `${user.username}`)
+          })
+          .catch(error=>{
+            console.log(error)
           })
         }
       }
     )
-  }, [])
+  }, [subId])
+
 
   function handleLogin(user) {
     setUser(user)
