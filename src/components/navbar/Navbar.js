@@ -8,7 +8,6 @@ export default function Navbar() {
   const handleLoginState = () => {
     if (user) {
       window.location.href = '/'
-      return reactLocalStorage.remove('users')
     } else {
       window.location.href = '/login'
       // return reactLocalStorage.setObject
