@@ -5,6 +5,7 @@ import Login from '../login/Login'
 
 function Article({ user, loggedInUsers, handleLogin }) {
   const [articles, setArticles] = useState([])
+
   // const isLoggedIn = reactLocalStorage.getObject('users').success
   console.log(user)
 

@@ -60,9 +60,10 @@ export default function Navbar() {
               {user ? 'Logout' : 'Login'}
             </Link>
           </li>
-
           <li className='topListItem'>
-            <button className='topButton'>Get Unlimited Access</button>
+          <Link className='link' to='/signup'>
+          <button className='topButton'>Get Unlimited Access</button>
+            </Link>
           </li>
         </ul>
       </div>

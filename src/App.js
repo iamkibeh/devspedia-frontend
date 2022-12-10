@@ -17,6 +17,7 @@ import DevSignup from './components/dev/DevSignup'
 import { useEffect } from 'react'
 import useMemoryState from './components/local-storage/UseInMemmoryState'
 import { reactLocalStorage } from 'reactjs-localstorage'
+import ContactUs from './components/contact-us/ContactUs'
 
 function App() {
   const [user, setUser] = useState(null)
@@ -97,6 +98,7 @@ function App() {
         />
 
         <Route path='about' element={<AboutUs />} />
+        <Route path='contact_us' element={<ContactUs />} />
         <Route path='dev' element={<DevsDashboard user={user} />}>
           {/* <Route index element={<DevsDashboard />} /> */}
           <Route
