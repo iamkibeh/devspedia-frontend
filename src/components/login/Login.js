@@ -3,20 +3,7 @@ import React, { useState } from 'react'
 import './Login.css'
 
 function Login({ handleLogin, action = '' }) {
-  // console.log(handleLogin.handleLogin)
-  // const initFormState = {
-  //   username: '',
-  //   password: '',
-  // }
-  // const [user, setUser]=useState({})
-
-  // comment
-
-  // const [formState, setFormState] = useState({})
-  // const [username, setUsername] = useState("");
-  // const [password, setPassword] = useState("");
-
-  // const [formData,setFormdata]=useState({username:"",password:""})
+  const [errors, setErrors] = useState('')
 
   const [formData, setFormdata] = useState({})
 
@@ -93,9 +80,13 @@ function Login({ handleLogin, action = '' }) {
         }).then((r) => {
           if (r.ok) {
             r.json().then((user) => {
+              console.log('i have logged in')
+              console.log(r.headers)
               handleLogin(user)
               navigate('/articles')
             })
+          } else {
+            r.json().then((err) => setErrors(err.error))
           }
         })
   }
@@ -136,6 +127,9 @@ function Login({ handleLogin, action = '' }) {
             </form>
           </div>
           <div className='login-footer'>
+            <p style={{ color: 'red', fontStyle: 'italic' }}>
+              {errors && errors} !
+            </p>
             <div className='register'>
               <p>
                 Don't have an account?
