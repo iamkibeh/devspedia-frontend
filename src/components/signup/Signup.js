@@ -49,7 +49,7 @@ function Signup({ addNewUser }) {
   function handleSubmit(e){
     e.preventDefault()
 console.log(formState)
-fetch("https://devspedia-api-production.up.railway.app/signup",{
+fetch("http://127.0.0.1:3000/signup",{
   method: "POST",
   headers:{
     "Content-type": "application/json"

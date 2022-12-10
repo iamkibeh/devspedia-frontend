@@ -69,7 +69,7 @@ function Login({ handleLogin, action = '' }) {
     console.log(action)
 
     action
-      ? fetch('https://devspedia-api-production.up.railway.app/login-dev', {
+      ? fetch('http://127.0.0.1:3000/logindev', {
           method: 'POST',
           headers: {
             'Content-Type': 'application/json',
@@ -84,7 +84,7 @@ function Login({ handleLogin, action = '' }) {
             })
           }
         })
-      : fetch('https://devspedia-api-production.up.railway.app/login', {
+      : fetch('http://127.0.0.1:3000/login-subscriber', {
           method: 'POST',
           headers: {
             'Content-Type': 'application/json',
@@ -94,12 +94,19 @@ function Login({ handleLogin, action = '' }) {
           if (r.ok) {
             r.json().then((user) => {
               handleLogin(user)
+              localStorage.setItem("jwt", user.jwt)
+              localStorage.setItem("user",`${user.subscriber.id}`)
               navigate('/articles')
             })
           }
         })
   }
 
+  const token = localStorage.getItem("jwt")
+  const subId  =  localStorage.getItem("user")
+
+      console.log(token);
+      console.log(subId);
   return (
     <>
       <div className='login-parent-container'>

@@ -3,12 +3,14 @@ import { Link } from 'react-router-dom'
 import { reactLocalStorage } from 'reactjs-localstorage'
 
 export default function Navbar() {
-  const user = reactLocalStorage.getObject('users').success
+  // const user = reactLocalStorage.getObject('users').success
+
+  const user = localStorage.getItem("user")
 
   const handleLoginState = () => {
     if (user) {
       window.location.href = '/'
-      return reactLocalStorage.remove('users')
+      return localStorage.clear('user')
     } else {
       window.location.href = '/login'
       // return reactLocalStorage.setObject
@@ -17,7 +19,7 @@ export default function Navbar() {
   return (
     <div className='top'>
       <div className='topLeft'>
-        <h1 className='toptitle'>DevPedia </h1>
+        <h1 className='toptitle'>DevsPedia </h1>
       </div>
 
       <div className='topCenter'>
