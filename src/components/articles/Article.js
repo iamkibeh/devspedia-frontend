@@ -5,18 +5,20 @@ import Login from '../login/Login'
 
 function Article({ user, loggedInUsers, handleLogin }) {
   const [articles, setArticles] = useState([])
-  // const [loggedIn, setIsLoggedIn] = useState(false)
-  console.log(loggedInUsers)
+  const isLoggedIn = reactLocalStorage.getObject('users').success
+  console.log(user)
 
-  // useEffect(() => {
-  //   fetch('/articles')
-  //     .then((r) => r.json())
-  //     .then((data) => {
-  //       console.log(data)
-  //       setArticles(data)
-  //     })
-  // }, [])
-  // console.log(reactLocalStorage.getObject('users').success)
+  useEffect(() => {
+    isLoggedIn &&
+      fetch('https://devspedia-api-production.up.railway.app/articles')
+        .then((r) => r.json())
+        .then((data) => {
+          console.log(data)
+          setArticles(data)
+        })
+  }, [isLoggedIn])
+  console.log(reactLocalStorage.getObject('users'))
+  console.log(isLoggedIn)
 
   return (
     <>

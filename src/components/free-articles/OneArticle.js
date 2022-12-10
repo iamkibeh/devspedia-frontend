@@ -14,15 +14,15 @@ const OneArticle = ({ article }) => {
   } = article
   const [readMore, setReadMore] = useState(false)
 
-  console.log(article)
-
   return (
     <div className='article-card'>
       <div className='article-image'>
         <div className='article-image-myimage'>
           <img src={featured_image} alt='profile pic' />
         </div>
-        <p>{dev.username}</p>
+        <p>
+          {dev.fname} {dev.lname}
+        </p>
       </div>
 
       <div className='article-content'>
@@ -31,14 +31,17 @@ const OneArticle = ({ article }) => {
         </div>
         <div className='article-description'>
           <p>
-            {readMore ? { content } : `${content.substring(0, 100)}...`}
-            <button onClick={() => setReadMore((readMore) => !readMore)}>
-              {readMore ? 'show less' : '  read more'}
-            </button>
+            {readMore
+              ? `${article.content}`
+              : `${article.content.substring(0, 30)}...`}
           </p>
+
+          <button onClick={() => setReadMore(!readMore)}>
+            {readMore ? 'show less' : '  read more'}
+          </button>
         </div>
         <div className='article-footer'>
-          <p>{created_at}</p>
+          <p>{created_at.slice(0, 10)}</p>
           <p>
             {likes} <BsHeart />
           </p>
