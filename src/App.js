@@ -74,9 +74,25 @@ function App() {
       }
     )
 
-    // setUsers([...loggedInUsers, dev])
-    // reactLocalStorage.setObject('users', dev)
-  }
+
+	return (
+		<>
+			<Navbar />
+			<Routes>
+				<Route path="/" index element={<Home />} />
+				<Route path="signup" element={<Signup />} />
+				<Route path="login" element={<Login handleLogin={handleLogin} />} />
+				<Route
+					path="articles"
+					element={
+						<Article
+							user={user}
+							loggedInUsers={loggedInUsers}
+							handleLogin={handleLogin}
+						/>
+					}
+				/>
+
 
   return (
     <>
@@ -111,4 +127,4 @@ function App() {
   )
 }
 
-export default App
+export default App;

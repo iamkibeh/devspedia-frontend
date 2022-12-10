@@ -170,4 +170,4 @@ function Login({ handleLogin, action = '' }) {
   )
 }
 
-export default Login
+export default Login;
