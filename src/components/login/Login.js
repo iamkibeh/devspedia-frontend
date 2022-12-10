@@ -48,6 +48,7 @@ function Login({ handleLogin, action = '' }) {
     const key = e.target.name
     const value = e.target.value
 
+    setErrors('')
     setFormdata({ ...formData, [key]: value })
   }
 
@@ -56,7 +57,7 @@ function Login({ handleLogin, action = '' }) {
     console.log(action)
 
     action
-      ? fetch('http://127.0.0.1:3000/logindev', {
+      ? fetch('https://devspedia-api-production.up.railway.app/logindev', {
           method: 'POST',
           headers: {
             'Content-Type': 'application/json',
@@ -64,40 +65,53 @@ function Login({ handleLogin, action = '' }) {
           body: JSON.stringify(formData),
         }).then((res) => {
           if (res.ok) {
-            return res.json().then((data) => {
-              console.log(formData)
-              handleLogin.handleDevLogin(formData)
-              navigate('/dev/1/articles')
+            return res.json().then((user) => {
+              console.log(user)
+              handleLogin.handleDevLogin(user)
+              localStorage.setItem('dev-token', user.jwt)
+              localStorage.setItem('dev', user.dev.id)
+              navigate(`/dev/${user.dev.id}/articles`)
+              window.location.reload()
             })
           }
         })
-      : fetch('http://127.0.0.1:3000/login-subscriber', {
-          method: 'POST',
-          headers: {
-            'Content-Type': 'application/json',
-          },
-          body: JSON.stringify(formData),
-        }).then((r) => {
-          if (r.ok) {
-            r.json().then((user) => {
-              console.log('i have logged in')
-              console.log(r.headers)
-              handleLogin(user)
-              localStorage.setItem("jwt", user.jwt)
-              localStorage.setItem("user",`${user.subscriber.id}`)
-              navigate('/articles')
-            })
-          } else {
-            r.json().then((err) => setErrors(err.error))
+      : fetch(
+          'https://devspedia-api-production.up.railway.app/login-subscriber',
+          {
+            method: 'POST',
+            headers: {
+              'Content-Type': 'application/json',
+            },
+            body: JSON.stringify(formData),
           }
-        })
+        )
+          .then((r) => {
+            if (r.ok) {
+              r.json().then((user) => {
+                console.log('i have logged in')
+                console.log(r.headers)
+                handleLogin(user)
+                localStorage.setItem('jwt', user.jwt)
+                localStorage.setItem('user', `${user.subscriber.id}`)
+                navigate('/articles')
+                window.location.reload()
+              })
+            } else {
+              r.json().then((err) => {
+                setErrors(err.errors)
+              })
+            }
+          })
+          .catch((err) => console.log(err))
   }
 
-  const token = localStorage.getItem("jwt")
-  const subId  =  localStorage.getItem("user")
+  console.log(errors)
 
-      console.log(token);
-      console.log(subId);
+  const token = localStorage.getItem('jwt')
+  const subId = localStorage.getItem('user')
+
+  console.log(token)
+  console.log(subId)
   return (
     <>
       <div className='login-parent-container'>
@@ -135,7 +149,7 @@ function Login({ handleLogin, action = '' }) {
           </div>
           <div className='login-footer'>
             <p style={{ color: 'red', fontStyle: 'italic' }}>
-              {errors && errors} !
+              {errors && `${errors}!`}
             </p>
             <div className='register'>
               <p>
