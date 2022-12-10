@@ -160,8 +160,8 @@ password_confirmation: formState.password_confirmation
               </div>
 
               <div className='logins-button-form'>
-                <button type='submit'>submit</button>
-              </div>
+              <button onClick={()=>navigate("/login")}>Signup</button>             
+               </div>
             </form>
           </div>
           <div className='login-footer'>
