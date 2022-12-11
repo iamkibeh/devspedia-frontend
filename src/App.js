@@ -93,7 +93,7 @@ function App() {
             <Route path='dev' element={<DevsDashboard user={user} />}>
               {/* <Route index element={<DevsDashboard />} /> */}
               <Route
-                path='login'
+                path=''
                 index
                 element={<DevLogin handleDevLogin={handleDevLogin} />}
               />
