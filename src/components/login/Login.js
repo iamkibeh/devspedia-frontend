@@ -34,7 +34,7 @@ function Login({ handleLogin, action = '' }) {
               handleLogin.handleDevLogin(user)
               localStorage.setItem('dev-token', user.jwt)
               localStorage.setItem('dev', user.dev.id)
-              navigate(`/dev/${user.dev.id}/articles`)
+              navigate('dashboard')
               // window.location.reload()
             })
           } else {

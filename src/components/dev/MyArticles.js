@@ -28,7 +28,7 @@ const MyArticles = () => {
       <div className='articles-container'>
         {articles.length ? (
           articles.map((article) => (
-            <OneArticle key={article.id} article={article} />
+            <OneArticle key={article.id} article={article} action='DELETE' />
           ))
         ) : (
           <div className='no-articles'>

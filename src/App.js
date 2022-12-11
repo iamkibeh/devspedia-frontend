@@ -79,7 +79,7 @@ function App() {
     <>
       <div className='body-container'>
         <div className='content-wrap'>
-          {window.location.pathname !== '/dev' && <Navbar />}
+          {!window.location.pathname.includes('dev') && <Navbar />}
           <Routes>
             <Route path='/' index element={<Home />} />
             <Route path='signup' element={<Signup />} />
@@ -91,9 +91,9 @@ function App() {
 
             <Route path='about' element={<AboutUs />} />
             <Route path='contact_us' element={<ContactUs />} />
-            <Route path='dev' element={<DevsDashboard user={user} />}>
-              {/* <Route index element={<DevsDashboard />} /> */}
-              <Route
+            {/* <Route path='dev' element={<DevsDashboard user={user} />}> */}
+            {/* <Route index element={<DevsDashboard />} /> */}
+            {/* <Route
                 path=''
                 index
                 element={<DevLogin handleDevLogin={handleDevLogin} />}
@@ -102,7 +102,22 @@ function App() {
               <Route path=':id/dashboard/profile' element={<Profile />} />
               <Route path=':id/articles/create' element={<DevArticles />} />
               <Route path=':id/articles' element={<MyArticles />} />
+            </Route> */}
+
+            {/* kibet */}
+            <Route
+              path='dev'
+              element={<DevLogin handleDevLogin={handleDevLogin} />}
+            />
+            <Route path='dev/dashboard' element={<DevsDashboard user={user} />}>
+              <Route index element={<Home />} />
+
+              <Route path='signup' element={<DevSignup />} />
+              <Route path='profile' element={<Profile />} />
+              <Route path='create' element={<DevArticles />} />
+              <Route path='articles' element={<MyArticles />} />
             </Route>
+
             <Route path='*' element={<Home />} />
           </Routes>
         </div>

@@ -2,6 +2,7 @@ import React, { useState } from 'react'
 import './dev.css'
 import { VscSaveAs } from 'react-icons/vsc'
 import { GiCancel } from 'react-icons/gi'
+import { redirect, useNavigate } from 'react-router-dom'
 
 const DevArticles = () => {
   const dev_id = localStorage.getItem('dev')
@@ -13,6 +14,7 @@ const DevArticles = () => {
     dev_id,
     is_free: true,
   })
+  const navigate = useNavigate()
 
   console.log()
   const handleArticleChange = (e) => {
@@ -47,6 +49,7 @@ const DevArticles = () => {
       })
 
     e.target.reset()
+    navigate('/dev/dashboard/articles')
   }
   return (
     <>

@@ -7,14 +7,16 @@ import IconButton from '@mui/material/IconButton'
 import Typography from '@mui/material/Typography'
 import CloseIcon from '@mui/icons-material/Close'
 import Slide from '@mui/material/Slide'
+import { useNavigate } from 'react-router-dom'
 
 const Transition = React.forwardRef(function Transition(props, ref) {
   return <Slide direction='up' ref={ref} {...props} />
 })
 
-const OneArticle = ({ article }) => {
+const OneArticle = ({ article, action = '' }) => {
   const [open, setOpen] = React.useState(false)
   const [dev, setDev] = useState({})
+  const navigate = useNavigate()
   const {
     created_at,
     featured_image,
@@ -47,6 +49,19 @@ const OneArticle = ({ article }) => {
     setOpen(false)
   }
 
+  // console.log('devs side render', action)
+
+  const handleDeleteRequest = () => {
+    fetch(`https://devspedia-api-production.up.railway.app/myarticles/${id}`, {
+      method: 'DELETE',
+      headers: {
+        'Content-Type': 'application/json',
+        Authorization: `Bearer ${localStorage.getItem('dev-token')}`,
+      },
+    })
+    navigate('/dev/dashboard/articles')
+    window.location.reload()
+  }
   return (
     <div>
       <div className='article-card' onClick={handleClickOpen}>
@@ -106,6 +121,13 @@ const OneArticle = ({ article }) => {
             </IconButton>
             <Typography sx={{ ml: 2, flex: 1 }} variant='h6' component='div'>
               {title}
+            </Typography>
+            <Typography sx={{ ml: 50, flex: 1 }} variant='h6' component='div'>
+              {action && (
+                <button className='delete-btn' onClick={handleDeleteRequest}>
+                  delete
+                </button>
+              )}
             </Typography>
           </Toolbar>
         </AppBar>
