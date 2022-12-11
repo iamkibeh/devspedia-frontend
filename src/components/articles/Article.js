@@ -58,6 +58,9 @@ function Article({ user, handleLogin }) {
         </div>
       ) : (
         <>
+
+          <h2>Become a member to enjoy unlimited access of amazing content from our developers</h2>
+
           <Login handleLogin={handleLogin} />
         </>
       )}
