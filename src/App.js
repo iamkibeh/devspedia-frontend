@@ -109,10 +109,11 @@ function App() {
               path='dev'
               element={<DevLogin handleDevLogin={handleDevLogin} />}
             />
+            <Route path='dev-signup' element={<DevSignup />} />
+
             <Route path='dev/dashboard' element={<DevsDashboard user={user} />}>
               <Route index element={<Home />} />
 
-              <Route path='signup' element={<DevSignup />} />
               <Route path='profile' element={<Profile />} />
               <Route path='create' element={<DevArticles />} />
               <Route path='articles' element={<MyArticles />} />

@@ -121,9 +121,7 @@ function Login({ handleLogin, action = '' }) {
               <p>
                 Don't have an account?
                 <span>
-                  <Link
-                    to={myRoute !== '/dev/login' ? '/signup' : '/dev/signup'}
-                  >
+                  <Link to={myRoute !== '/dev' ? '/signup' : '/dev-signup'}>
                     Register
                   </Link>
                 </span>
