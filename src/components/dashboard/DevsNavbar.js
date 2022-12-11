@@ -1,9 +1,9 @@
 import React from 'react'
-import { Link } from 'react-router-dom'
+import { Link, Navigate } from 'react-router-dom'
 
 const DevsNavbar = () => {
   const handleClick = () => {
-    window.location.href = '/'
+    Navigate('/')
     window.location.reload()
   }
   return (
