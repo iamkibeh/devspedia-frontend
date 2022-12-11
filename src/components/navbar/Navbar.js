@@ -1,11 +1,10 @@
 import './navbar.css'
 import { Link } from 'react-router-dom'
-import { reactLocalStorage } from 'reactjs-localstorage'
 
 export default function Navbar() {
   // const user = reactLocalStorage.getObject('users').success
 
-  const user = localStorage.getItem("user")
+  const user = localStorage.getItem('user')
 
   const handleLoginState = () => {
     if (user) {
@@ -61,8 +60,8 @@ export default function Navbar() {
             </Link>
           </li>
           <li className='topListItem'>
-          <Link className='link' to='/signup'>
-          <button className='topButton'>Get Unlimited Access</button>
+            <Link className='link' to='/signup'>
+              <button className='topButton'>Get Unlimited Access</button>
             </Link>
           </li>
         </ul>

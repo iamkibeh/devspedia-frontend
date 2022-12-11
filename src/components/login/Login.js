@@ -4,52 +4,16 @@ import './Login.css'
 
 function Login({ handleLogin, action = '' }) {
   const [errors, setErrors] = useState('')
-
-  const [formData, setFormdata] = useState({})
-
+  const [formData, setFormData] = useState({})
   const myRoute = window.location.pathname
-
   const navigate = useNavigate()
-
-  // const handleSubmit = async (e) => {
-  //   console.log(formState)
-  //   e.preventDefault()
-  //   await fetch('http://127.0.0.1:3000/login', {
-  //     method: 'POST',
-  //     headers: {
-  //       'Content-Type': 'application/json',
-  //     },
-  //     body: JSON.stringify(formState),
-  //   })
-  //     .then((resp) => resp.json())
-  //     .then((user) => {
-
-  //       setLoggedIn(user)
-  //       // setFormState(initFormState)
-  //       localStorage.setItem('user', user)
-  //       console.log(user)
-  //       navigate('/articles')
-
-  //       // if (user.error) {
-  //       //   alert(user.error)
-  //       // } else {
-  //       //   setLoggedIn(user)
-  //       //   // setFormState(initFormState)
-  //       //   localStorage.setItem('user', user)
-  //       //   console.log(user)
-  //       //   navigate('/articles')
-  //       // }
-
-  //     })
-
-  // }
 
   function handleInput(e) {
     const key = e.target.name
     const value = e.target.value
 
     setErrors('')
-    setFormdata({ ...formData, [key]: value })
+    setFormData({ ...formData, [key]: value })
   }
 
   function handleSubmit(e) {
@@ -71,7 +35,11 @@ function Login({ handleLogin, action = '' }) {
               localStorage.setItem('dev-token', user.jwt)
               localStorage.setItem('dev', user.dev.id)
               navigate(`/dev/${user.dev.id}/articles`)
-              window.location.reload()
+              // window.location.reload()
+            })
+          } else {
+            res.json().then((err) => {
+              setErrors(err.errors)
             })
           }
         })
@@ -94,7 +62,7 @@ function Login({ handleLogin, action = '' }) {
                 localStorage.setItem('jwt', user.jwt)
                 localStorage.setItem('user', `${user.subscriber.id}`)
                 navigate('/articles')
-                window.location.reload()
+                // window.location.reload()
               })
             } else {
               r.json().then((err) => {
@@ -105,13 +73,11 @@ function Login({ handleLogin, action = '' }) {
           .catch((err) => console.log(err))
   }
 
-  console.log(errors)
+  // const token = localStorage.getItem('jwt')
+  // const subId = localStorage.getItem('user')
 
-  const token = localStorage.getItem('jwt')
-  const subId = localStorage.getItem('user')
-
-  console.log(token)
-  console.log(subId)
+  // console.log(token)
+  // console.log(subId)
   return (
     <>
       <div className='login-parent-container'>
@@ -170,4 +136,4 @@ function Login({ handleLogin, action = '' }) {
   )
 }
 
-export default Login;
+export default Login

@@ -17,11 +17,12 @@ const MyArticles = () => {
     })
       .then((response) => response.json())
       .then((data) => {
-        console.log('hello you are in one articke')
         console.log(data)
         setArticles(data.articles)
       })
   }, [dev, token])
+
+  console.log(articles)
   return (
     <>
       <div className='articles-container'>

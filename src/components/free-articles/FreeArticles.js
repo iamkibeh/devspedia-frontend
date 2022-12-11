@@ -2,6 +2,7 @@ import React, { useEffect, useState } from 'react'
 import './free-articles.css'
 import { useInView } from 'react-intersection-observer'
 import OneArticle from './OneArticle'
+import { useNavigate } from 'react-router-dom'
 
 const FreeArticles = () => {
   const { ref, inView } = useInView({
@@ -9,6 +10,7 @@ const FreeArticles = () => {
     threshold: 0,
     // rootMargin: '-200px'
   })
+  const navigate = useNavigate()
   const [articles, setArticles] = useState([])
 
   useEffect(() => {
@@ -18,6 +20,10 @@ const FreeArticles = () => {
         setArticles(data)
       })
   }, [])
+
+  const handleReadMoreClick = () => {
+    navigate('/articles')
+  }
   return (
     <>
       <div className='free-article-container'>
@@ -33,7 +39,7 @@ const FreeArticles = () => {
           })}
         </div>
         <div className='show-more-button'>
-          <button>read more</button>
+          <button onClick={handleReadMoreClick}>read more</button>
         </div>
       </div>
     </>
