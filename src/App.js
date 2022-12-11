@@ -18,6 +18,7 @@ import { useEffect } from 'react'
 import { reactLocalStorage } from 'reactjs-localstorage'
 import ContactUs from './components/contact-us/ContactUs'
 import TeamsPage from './components/teamspage/TeamsPage'
+import DevsNavbar from './components/dashboard/DevsNavbar'
 
 function App() {
   const [user, setUser] = useState(null)
@@ -79,7 +80,11 @@ function App() {
     <>
       <div className='body-container'>
         <div className='content-wrap'>
-          {!window.location.pathname.includes('dev') && <Navbar />}
+          {window.location.pathname.includes('dev') ? (
+            <DevsNavbar />
+          ) : (
+            <Navbar />
+          )}
           <Routes>
             <Route path='/' index element={<Home />} />
             <Route path='signup' element={<Signup />} />
