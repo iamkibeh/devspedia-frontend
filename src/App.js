@@ -60,7 +60,6 @@ function App() {
   //   setUser(null);
   // }
 
-
   function handleDevLogin(dev) {
     // console.log('you have handled a dev logged in call back')
     setUser(dev)
@@ -78,32 +77,37 @@ function App() {
   }
   return (
     <>
-      {window.location.pathname !== '/dev' && <Navbar />}
-      <Routes>
-        <Route path='/' index element={<Home />} />
-        <Route path='signup' element={<Signup />} />
-        <Route path='login' element={<Login handleLogin={handleLogin} />} />
-        <Route
-          path='articles'
-          element={<Article user={user} handleLogin={handleLogin} />}
-        />
-        <Route path='about' element={<TeamsPage />} />
-        <Route path='contact_us' element={<ContactUs />} />
-        <Route path='dev' element={<DevsDashboard user={user} />}>
-          {/* <Route index element={<DevsDashboard />} /> */}
-          <Route
-            path='login'
-            index
-            element={<DevLogin handleDevLogin={handleDevLogin} />}
-          />
-          <Route path='signup' element={<DevSignup />} />
-          <Route path=':id/dashboard/profile' element={<Profile />} />
-          <Route path=':id/articles/create' element={<DevArticles />} />
-          <Route path=':id/articles' element={<MyArticles />} />
-        </Route>
-        <Route path='*' element={<Home />} />
-      </Routes>
-      <Footer />
+      <div className='body-container'>
+        <div className='content-wrap'>
+          {window.location.pathname !== '/dev' && <Navbar />}
+          <Routes>
+            <Route path='/' index element={<Home />} />
+            <Route path='signup' element={<Signup />} />
+            <Route path='login' element={<Login handleLogin={handleLogin} />} />
+            <Route
+              path='articles'
+              element={<Article user={user} handleLogin={handleLogin} />}
+            />
+
+            <Route path='about' element={<AboutUs />} />
+            <Route path='contact_us' element={<ContactUs />} />
+            <Route path='dev' element={<DevsDashboard user={user} />}>
+              {/* <Route index element={<DevsDashboard />} /> */}
+              <Route
+                path=''
+                index
+                element={<DevLogin handleDevLogin={handleDevLogin} />}
+              />
+              <Route path='signup' element={<DevSignup />} />
+              <Route path=':id/dashboard/profile' element={<Profile />} />
+              <Route path=':id/articles/create' element={<DevArticles />} />
+              <Route path=':id/articles' element={<MyArticles />} />
+            </Route>
+            <Route path='*' element={<Home />} />
+          </Routes>
+        </div>
+        <Footer />
+      </div>
     </>
   )
 }

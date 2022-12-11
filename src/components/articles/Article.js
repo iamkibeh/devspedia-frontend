@@ -1,17 +1,15 @@
-import React, { useState, useEffect } from "react";
-import { reactLocalStorage } from "reactjs-localstorage";
-import OneArticle from "../free-articles/OneArticle";
-import Login from "../login/Login";
-
+import React, { useState, useEffect } from 'react'
+import { reactLocalStorage } from 'reactjs-localstorage'
+import OneArticle from '../free-articles/OneArticle'
+import Login from '../login/Login'
 
 function Article({ user, handleLogin }) {
   const [articles, setArticles] = useState([])
   const [loading, setLoading] = useState(true)
 
+  // const isLoggedIn = reactLocalStorage.getObject('users').success
+  console.log(user)
 
-	// const isLoggedIn = reactLocalStorage.getObject('users').success
-	console.log(user);
-  
   const token = localStorage.getItem('jwt')
   const username = localStorage.getItem('user')
   console.log(username)
@@ -38,7 +36,7 @@ function Article({ user, handleLogin }) {
   console.log(reactLocalStorage.getObject('users'))
   // console.log(isLoggedIn)
   const subId = localStorage.getItem('user')
-    console.log(subId)
+  console.log(subId)
 
   return (
     <>
@@ -60,7 +58,6 @@ function Article({ user, handleLogin }) {
         </div>
       ) : (
         <>
-          <h2>Login first to access the articles</h2>
           <Login handleLogin={handleLogin} />
         </>
       )}
@@ -68,4 +65,4 @@ function Article({ user, handleLogin }) {
   )
 }
 
-export default Article;
+export default Article
