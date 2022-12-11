@@ -16,6 +16,9 @@
 .meet-us span {
   color: whitesmoke;
 }
+.bio-sec{
+  height: 110%;
+}
 
 .sliding-images-container {
   position: relative;

@@ -17,6 +17,7 @@ import DevSignup from './components/dev/DevSignup'
 import { useEffect } from 'react'
 import { reactLocalStorage } from 'reactjs-localstorage'
 import ContactUs from './components/contact-us/ContactUs'
+import TeamsPage from './components/teamspage/TeamsPage'
 
 function App() {
   const [user, setUser] = useState(null)
