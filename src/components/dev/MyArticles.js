@@ -22,6 +22,8 @@ const MyArticles = () => {
         setArticles(data.articles)
       })
   }, [dev, token])
+
+  console.log(articles)
   return (
     <>
       <div className='articles-container'>
