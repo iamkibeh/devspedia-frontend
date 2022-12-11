@@ -73,27 +73,7 @@ function App() {
         }
       }
     )
-
-
-	return (
-		<>
-			<Navbar />
-			<Routes>
-				<Route path="/" index element={<Home />} />
-				<Route path="signup" element={<Signup />} />
-				<Route path="login" element={<Login handleLogin={handleLogin} />} />
-				<Route
-					path="articles"
-					element={
-						<Article
-							user={user}
-							loggedInUsers={loggedInUsers}
-							handleLogin={handleLogin}
-						/>
-					}
-				/>
-
-
+  }
   return (
     <>
       {window.location.pathname !== '/dev' && <Navbar />}
@@ -127,4 +107,4 @@ function App() {
   )
 }
 
-export default App;
+export default App
