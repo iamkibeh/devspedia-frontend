@@ -38,8 +38,7 @@ function Article({ user, handleLogin }) {
   console.log(reactLocalStorage.getObject('users'))
   // console.log(isLoggedIn)
   const subId = localStorage.getItem('user')
-
-  console.log(subId)
+    console.log(subId)
 
   return (
     <>

@@ -60,6 +60,7 @@ function App() {
   //   setUser(null);
   // }
 
+
   function handleDevLogin(dev) {
     // console.log('you have handled a dev logged in call back')
     setUser(dev)
@@ -74,10 +75,9 @@ function App() {
         }
       }
     )
-    }
-
-	return (
-		<>
+  }
+  return (
+    <>
       {window.location.pathname !== '/dev' && <Navbar />}
       <Routes>
         <Route path='/' index element={<Home />} />
@@ -108,4 +108,4 @@ function App() {
   )
 }
 
-export default App;
+export default App

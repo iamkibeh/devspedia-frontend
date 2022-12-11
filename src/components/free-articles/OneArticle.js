@@ -1,8 +1,19 @@
 import React, { useState } from "react";
 import { BsHeart } from "react-icons/bs";
-import { Link } from "react-router-dom";
+import Dialog from "@mui/material/Dialog";
+import AppBar from "@mui/material/AppBar";
+import Toolbar from "@mui/material/Toolbar";
+import IconButton from "@mui/material/IconButton";
+import Typography from "@mui/material/Typography";
+import CloseIcon from "@mui/icons-material/Close";
+import Slide from "@mui/material/Slide";
+
+const Transition = React.forwardRef(function Transition(props, ref) {
+	return <Slide direction="up" ref={ref} {...props} />;
+});
 
 const OneArticle = ({ article }) => {
+	const [open, setOpen] = React.useState(false);
 	const {
 		created_at,
 		dev,
@@ -13,11 +24,19 @@ const OneArticle = ({ article }) => {
 		title,
 		content,
 	} = article;
+
+	const handleClickOpen = () => {
+		setOpen(true);
+	};
+
+	const handleClose = () => {
+		setOpen(false);
+	};
 	const [readMore, setReadMore] = useState(false);
 
 	return (
-		<Link to={"/articles/" + id} style={{ textDecoration: "none" }}>
-			<div className="article-card">
+		<div>
+			<div className="article-card" onClick={handleClickOpen}>
 				<div className="article-image">
 					<div className="article-image-myimage">
 						<img src={featured_image} alt="profile pic" />
@@ -32,7 +51,8 @@ const OneArticle = ({ article }) => {
 						<h4>{title}</h4>
 					</div>
 					<div className="article-description">
-						<p>
+						{
+							`${article.content.substring(0, 30)}...` /* <p>
 							{readMore
 								? `${article.content}`
 								: `${article.content.substring(0, 30)}...`}
@@ -40,17 +60,62 @@ const OneArticle = ({ article }) => {
 
 						<button onClick={() => setReadMore(!readMore)}>
 							{readMore ? "show less" : "  read more"}
-						</button>
+						</button> */
+						}
 					</div>
 					<div className="article-footer">
 						<p>{created_at.slice(0, 10)}</p>
 						<p>
 							{likes} <BsHeart />
 						</p>
+						<p>Minutes to read {minutes_to_read}</p>
 					</div>
 				</div>
 			</div>
-		</Link>
+			<Dialog
+				fullScreen
+				open={open}
+				onClose={handleClose}
+				TransitionComponent={Transition}
+			>
+				<AppBar
+					sx={{ position: "relative" }}
+					styles={{ backgroundColor: "#586b88" }}
+				>
+					<Toolbar>
+						<IconButton
+							edge="start"
+							color="inherit"
+							onClick={handleClose}
+							aria-label="close"
+						>
+							<CloseIcon />
+						</IconButton>
+						<Typography sx={{ ml: 2, flex: 1 }} variant="h6" component="div">
+							{title}
+						</Typography>
+					</Toolbar>
+				</AppBar>
+				<div className="article-image">
+					<div className="article-image-myimage">
+						<img src={featured_image} alt="profile pic" />
+					</div>
+					<p>
+						{dev.fname} {dev.lname}
+					</p>
+				</div>
+				<div className="article-description">
+					<p>{article.content}</p>
+				</div>
+				<div className="article-footer">
+					<p>{created_at.slice(0, 10)}</p>
+					<p>
+						{likes} <BsHeart />
+					</p>
+					<p>Minutes to read {minutes_to_read}</p>
+				</div>
+			</Dialog>
+		</div>
 	);
 };
 
