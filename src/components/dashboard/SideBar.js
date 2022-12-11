@@ -17,7 +17,10 @@ const SideBar = () => {
 
   return (
     <div>
-      <h4>Dashboard</h4>
+      <NavLink to='/dev/dashboard' style={{ textDecoration: 'none' }}>
+        {' '}
+        <h4>Dashboard</h4>{' '}
+      </NavLink>
       <ul>
         <li>
           <MdOutlineEdit />
@@ -28,7 +31,7 @@ const SideBar = () => {
         <li>
           <IoMdNotificationsOutline />
           <NavLink to='/dev/dashboard/articles'>
-            <p>Articles</p>
+            <p>My Articles</p>
           </NavLink>
         </li>
         <li>
