@@ -51,7 +51,8 @@ const OneArticle = ({ article }) => {
 						<h4>{title}</h4>
 					</div>
 					<div className="article-description">
-						<p>
+						{
+							`${article.content.substring(0, 30)}...` /* <p>
 							{readMore
 								? `${article.content}`
 								: `${article.content.substring(0, 30)}...`}
@@ -59,7 +60,8 @@ const OneArticle = ({ article }) => {
 
 						<button onClick={() => setReadMore(!readMore)}>
 							{readMore ? "show less" : "  read more"}
-						</button>
+						</button> */
+						}
 					</div>
 					<div className="article-footer">
 						<p>{created_at.slice(0, 10)}</p>
