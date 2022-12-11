@@ -60,12 +60,11 @@ function Article({ user, handleLogin }) {
         </div>
       ) : (
         <>
-          <h2>Login first to access the articles</h2>
+          <h2>Become a member to enjoy unlimited access of amazing content from our developers</h2>
           <Login handleLogin={handleLogin} />
         </>
       )}
     </>
   )
 }
-
 export default Article;
