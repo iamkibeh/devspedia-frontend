@@ -34,7 +34,7 @@ function Login({ handleLogin, action = '' }) {
               handleLogin.handleDevLogin(user)
               localStorage.setItem('dev-token', user.jwt)
               localStorage.setItem('dev', user.dev.id)
-              navigate(`/dev/${user.dev.id}/articles`)
+              navigate('dashboard')
               // window.location.reload()
             })
           } else {
@@ -121,9 +121,7 @@ function Login({ handleLogin, action = '' }) {
               <p>
                 Don't have an account?
                 <span>
-                  <Link
-                    to={myRoute !== '/dev/login' ? '/signup' : '/dev/signup'}
-                  >
+                  <Link to={myRoute !== '/dev' ? '/signup' : '/dev-signup'}>
                     Register
                   </Link>
                 </span>

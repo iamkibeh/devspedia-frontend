@@ -9,37 +9,43 @@ import { IoMdNotificationsOutline } from 'react-icons/io'
 import { NavLink } from 'react-router-dom'
 
 const SideBar = () => {
+  const dev = localStorage.getItem('dev-token')
+  const handleLogoutClick = () => {
+    window.location.href = '/dev'
+    return localStorage.clear('dev-token')
+  }
+
   return (
     <div>
       <h4>Dashboard</h4>
       <ul>
         <li>
           <MdOutlineEdit />
-          <NavLink to='/dev/:id/dashboard/profile'>
+          <NavLink to='dev/dashboard/profile'>
             <p>Edit Profile</p>
           </NavLink>
         </li>
         <li>
           <IoMdNotificationsOutline />
-          <NavLink to='/dev/:id/articles'>
+          <NavLink to='/dev/dashboard/articles'>
             <p>Articles</p>
           </NavLink>
         </li>
         <li>
           <MdOutlineLock />
-          <NavLink to='/dev/:id/articles/create'>
+          <NavLink to='/dev/dashboard/create'>
             <p>Post Articles</p>
           </NavLink>
         </li>
         <li>
           <MdOutlineSettings />
-          <NavLink to='/dev/:id/settings'>
+          <NavLink to='/dev/dashboard/settings'>
             <p>Settings</p>
           </NavLink>
         </li>
         <li>
           <MdHelpOutline />
-          <NavLink to='/dev/:id/logout'>
+          <NavLink onClick={handleLogoutClick}>
             <p>Logout</p>
           </NavLink>
         </li>
