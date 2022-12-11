@@ -89,7 +89,7 @@ function App() {
               element={<Article user={user} handleLogin={handleLogin} />}
             />
 
-            <Route path='about' element={<AboutUs />} />
+            <Route path='about' element={<TeamsPage />} />
             <Route path='contact_us' element={<ContactUs />} />
             {/* <Route path='dev' element={<DevsDashboard user={user} />}> */}
             {/* <Route index element={<DevsDashboard />} /> */}
