@@ -19,6 +19,7 @@ import { reactLocalStorage } from 'reactjs-localstorage'
 import ContactUs from './components/contact-us/ContactUs'
 import TeamsPage from './components/teamspage/TeamsPage'
 import DevsNavbar from './components/dashboard/DevsNavbar'
+import DevHome from './components/dashboard/DevHome'
 
 function App() {
   const [user, setUser] = useState(null)
@@ -81,12 +82,12 @@ function App() {
       <div className='body-container'>
         <div className='content-wrap'>
           {window.location.pathname.includes('dev') ? (
-            <DevsNavbar />
+            <Navbar/>
           ) : (
             <Navbar />
           )}
           <Routes>
-            <Route path='/' index element={<Home />} />
+            {/* <Route path='/' index element={<Home />} />
             <Route path='signup' element={<Signup />} />
             <Route path='login' element={<Login handleLogin={handleLogin} />} />
             <Route
@@ -95,7 +96,7 @@ function App() {
             />
 
             <Route path='about' element={<TeamsPage />} />
-            <Route path='contact_us' element={<ContactUs />} />
+            <Route path='contact_us' element={<ContactUs />} /> */}
             {/* <Route path='dev' element={<DevsDashboard user={user} />}> */}
             {/* <Route index element={<DevsDashboard />} /> */}
             {/* <Route
@@ -110,7 +111,7 @@ function App() {
             </Route> */}
 
             {/* kibet */}
-            <Route
+            {/* <Route
               path='dev'
               element={<DevLogin handleDevLogin={handleDevLogin} />}
             />
@@ -124,7 +125,28 @@ function App() {
               <Route path='articles' element={<MyArticles />} />
             </Route>
 
+            <Route path='*' element={<Home />} /> */}
+
+            {/* NEW CODE */}
+
+             <Route path='/' index element={<Home />} />
+            <Route path='/signup' element={<Signup />} />
+            <Route path='/login' element={<Login handleLogin={handleLogin} />} />
+            <Route path='/articles' element={<Article user={user} handleLogin={handleLogin} />} />
+            <Route path='/about' element={<AboutUs />} />
+            <Route path='/contact_us' element={<ContactUs />} />
+            <Route path='/dev' element={<DevLogin handleDevLogin={handleDevLogin} /> }/>
+            <Route path='dashboard' element={<DevHome/>}>
+              {/* <Route path='' element={<DevsDashboard user={user} />}/> */}
+              <Route path='signup' element={<DevSignup />} />
+              <Route path='profile' element={<Profile />} />
+              <Route path='create' element={<DevArticles />} />
+              <Route path='articles' element={<MyArticles />} />
+            </Route>
             <Route path='*' element={<Home />} />
+
+
+
           </Routes>
         </div>
         <Footer />

@@ -25,6 +25,11 @@ const DevsNavbar = () => {
                 Contact us
               </Link>
             </li>
+            <li className='topListItem'>
+              <Link className='link' to='/dashboard'>
+                Dashboard
+              </Link>
+            </li>
             <li className='topListItem'></li>
           </ul>
         </div>
