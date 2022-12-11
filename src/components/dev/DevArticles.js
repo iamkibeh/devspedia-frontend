@@ -4,14 +4,17 @@ import { VscSaveAs } from 'react-icons/vsc'
 import { GiCancel } from 'react-icons/gi'
 
 const DevArticles = () => {
+  const dev_id = localStorage.getItem('dev')
   const [newArticle, setNewArticles] = useState({
     title: '',
     content: '',
     minutes_to_read: '',
     featured_image: '',
+    dev_id,
     is_free: true,
   })
 
+  console.log()
   const handleArticleChange = (e) => {
     setNewArticles({
       ...newArticle,
@@ -33,6 +36,7 @@ const DevArticles = () => {
         content: newArticle.content,
         minutes_to_read: newArticle.minutes_to_read,
         featured_image: newArticle.featured_image,
+        dev_id: newArticle.dev_id,
         is_free: newArticle.is_free,
       }),
     })

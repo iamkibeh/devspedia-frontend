@@ -4,3 +4,19 @@
   font-family: 'Montserrat', sans-serif;
   box-sizing: border-box;
 }
+
+.body-container {
+  position: relative;
+  min-height: 100vh;
+}
+
+.content-wrap {
+  padding-bottom: 14vh;
+}
+.footer {
+  height: 14vh;
+  position: absolute;
+  bottom: 0;
+  width: 100%;
+  margin-bottom: -4rem !important;
+}

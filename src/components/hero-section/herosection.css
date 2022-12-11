@@ -5,9 +5,13 @@
     'Arial', sans-serif;
 }
 
+.hero-section-container {
+  position: relative;
+  height: 87vh;
+}
 .embedded-video {
   width: 100%;
-  height: 87vh;
+  height: 100%;
 }
 
 .embedded-video video {
@@ -34,6 +38,6 @@
   top: 0;
   left: 0;
   width: 100%;
-  height: 97vh;
+  height: 100%;
   background-color: rgba(0, 0, 0, 0.5);
 }
