@@ -4,8 +4,8 @@ import "./Signup.css";
 
 function Signup({ addNewUser }) {
 	// const initFormState = {
-	//   firstname: '',
-	//   lastname: '',
+	//   fname: '',
+	//   lname: '',
 	//   username: '',
 	//   email: '',
 	//   password: '',
@@ -101,6 +101,24 @@ function Signup({ addNewUser }) {
                   onChange={formChange}
                   required
                 /> */}
+								<input
+									id="fname"
+									type="text"
+									name="fname"
+									placeholder="First Name"
+									// value={formState.fname}
+									onChange={(e) => formChange(e)}
+									required
+								/>
+								<input
+									id="lname"
+									type="text"
+									name="lname"
+									placeholder="Last Name"
+									// value={formState.lname}
+									onChange={(e) => formChange(e)}
+									required
+								/>
 								<input
 									id="username"
 									type="text"
