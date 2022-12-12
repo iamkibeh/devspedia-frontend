@@ -3,21 +3,22 @@ import { Link, useNavigate } from 'react-router-dom'
 
 const DevsNavbar = () => {
   const navigate = useNavigate()
-  const handleClick = () => {
-    navigate('/')
-    window.location.reload()
-  }
+
   return (
     <>
       <div className='top'>
         <div className='topLeft'>
-          <h1 className='toptitle'><Link className='link' to="/dev/dashboard" >DevsPedia</Link> </h1>
+          <h1 className='toptitle'>
+            <Link className='link' to='/dev/dashboard'>
+              DevsPedia
+            </Link>{' '}
+          </h1>
         </div>
 
         <div className='topCenter'>
           <ul className='topList'>
             <li className='topListItem'>
-              <Link className='link' onClick={handleClick}>
+              <Link className='link' to={'/'} target='_blank'>
                 Get Started as a User
               </Link>
             </li>
