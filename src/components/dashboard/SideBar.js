@@ -9,7 +9,6 @@ import { IoMdNotificationsOutline } from 'react-icons/io'
 import { NavLink } from 'react-router-dom'
 
 const SideBar = () => {
-  const dev = localStorage.getItem('dev-token')
   const handleLogoutClick = () => {
     window.location.href = '/dev'
     return localStorage.clear('dev-token')
@@ -24,7 +23,7 @@ const SideBar = () => {
       <ul>
         <li>
           <MdOutlineEdit />
-          <NavLink to='dev/dashboard/profile'>
+          <NavLink to='/dev/dashboard/profile'>
             <p>Edit Profile</p>
           </NavLink>
         </li>

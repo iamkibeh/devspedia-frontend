@@ -2,7 +2,7 @@ import React, { useState } from 'react'
 import './dev.css'
 import { VscSaveAs } from 'react-icons/vsc'
 import { GiCancel } from 'react-icons/gi'
-import { redirect, useNavigate } from 'react-router-dom'
+import { useNavigate } from 'react-router-dom'
 
 const DevArticles = () => {
   const dev_id = localStorage.getItem('dev')
@@ -23,7 +23,6 @@ const DevArticles = () => {
       [e.target.name]: e.target.value,
     })
   }
-  console.log(newArticle)
   const handleSaveArticle = (e) => {
     e.preventDefault()
     fetch(`https://devspedia-api-production.up.railway.app/myarticles`, {

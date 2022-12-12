@@ -1,6 +1,5 @@
 import React, { useState } from 'react'
 import { useNavigate, Link } from 'react-router-dom'
-import Signup from '../signup/Signup'
 
 const DevSignup = () => {
   const [errors, setErrors] = useState([])
