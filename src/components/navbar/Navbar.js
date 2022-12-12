@@ -18,15 +18,15 @@ export default function Navbar() {
   return (
     <div className='top'>
       <div className='topLeft'>
-        <h1 className='toptitle'>DevsPedia </h1>
+        <h1 className='toptitle'> <Link className='link' to='/'>DevsPedia</Link></h1>
       </div>
 
       <div className='topCenter'>
         <ul className='topList'>
           <li className='topListItem'>
-            <Link className='link' to='/'>
+            {/* <Link className='link' to='/'>
               Home
-            </Link>
+            </Link> */}
           </li>
 
           <li className='topListItem'>
