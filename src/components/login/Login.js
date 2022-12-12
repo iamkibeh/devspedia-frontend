@@ -84,7 +84,7 @@ function Login({ handleLogin, action = '' }) {
         <div className='login-box'>
           <h3>Login</h3>
           <h4>Welcome to Devspedia</h4>
-          <p>Login to explore developer articles</p>
+          {/* <p>Login To Access Your Account</p> */}
           <div className='devs-login-form'>
             <form onSubmit={handleSubmit} autoComplete='off'>
               <div className='login-inputs-container'>

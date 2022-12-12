@@ -4,13 +4,10 @@ import { useState } from 'react'
 
 export default function Navbar() {
   // const user = reactLocalStorage.getObject('users').success
-  const [isOpen, setIsOpen] = useState(false)
 
   const user = localStorage.getItem('user')
-  const dev = localStorage.getItem('dev')
-  const toggling = () => setIsOpen(!isOpen)
 
-  const handleUserLoginState = () => {
+  const handleLoginState = () => {
     if (user) {
       window.location.href = '/'
       return localStorage.removeItem('user')
@@ -19,17 +16,6 @@ export default function Navbar() {
       // return reactLocalStorage.setObject
     }
   }
-
-  const handleDevLoginState = () => {
-    if (dev) {
-      window.location.href = '/'
-      return localStorage.removeItem('dev')
-    } else {
-      window.location.href = '/dev'
-      // return reactLocalStorage.setObject
-    }
-  }
-
   return (
     <div className='top'>
       <div className='topLeft'>
@@ -71,33 +57,18 @@ export default function Navbar() {
       <div className='topRight'>
         <ul className='topList'>
           <li id='topListItem'>
-            <div className='drop-down-container'>
-              <div className='drop-down-header' onClick={toggling}>
-                <Link
-                  className='link'
-                  // to={user ? '/' : '/login'}
-                  // onClick={handleLoginState}
-                >
-                  {user ? 'Logout' : 'Login'}
-                </Link>
-              </div>
-              {isOpen && (
-                <div className='drop-down-list-container'>
-                  <ul className='drop-down-list'>
-                    <li>
-                      <Link className='link' onClick={handleUserLoginState}>
-                        {user ? 'Logout' : 'Login'} as a user
-                      </Link>
-                    </li>
-                    <li>
-                      <Link className='link' onClick={handleDevLoginState}>
-                        {dev ? 'Logout' : 'Login'} as a dev
-                      </Link>
-                    </li>
-                  </ul>
-                </div>
-              )}
-            </div>
+            <Link
+              className='link'
+              // to={user ? '/' : '/login'}
+              onClick={handleLoginState}
+            >
+              {user ? 'Logout' : 'Login'}
+            </Link>
+          </li>
+          <li id='topListItem'>
+            <Link className='link' to='/dev'>
+              Write
+            </Link>
           </li>
           <li className='topListItem'>
             <Link className='link' to='/articles'>
