@@ -62,13 +62,20 @@ export default function Navbar() {
               onClick={handleLoginState}
             >
               {user ? 'Logout' : 'Login'}
-            </Link>
+            </Link> 
+          </li>
+          <li id='topListItem'>
+            <Link
+              className='link' to="/dev" >
+              Write
+            </Link> 
           </li>
           <li className='topListItem'>
             <Link className='link' to='/articles'>
               <button className='topButton'>Get Unlimited Access</button>
             </Link>
           </li>
+
         </ul>
       </div>
     </div>

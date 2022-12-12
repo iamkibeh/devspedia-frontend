@@ -52,7 +52,7 @@ const DevSignup = () => {
           <div className='login-box'>
             <h3>Signup</h3>
             <h4>Welcome to Devspedia</h4>
-            <p>Signup to get unlimited access to articles</p>
+            <p>Signup to contribute as a writer</p>
             <div className='devs-login-form'>
               <form onSubmit={handleSubmit} autoComplete='off'>
                 <div className='login-inputs-container'>

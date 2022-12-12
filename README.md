@@ -66,7 +66,7 @@ A Dev can:
 
 ### Installation steps
 
-* This App is live, but you can also run it locally; here is the live link: https://netlify
+* This App is live, but you can also run it locally; here is the live link: https://devspedia.netlify.app/
 
 * To run locally, fork and clone the repository to your local machine, then run `npm install` to add dependencies.
 
@@ -101,7 +101,7 @@ Upon a successful Login, You will be redirected to your account where you will h
 #### Dev Logins
 You can also log in as a dev to be able create and delete articles:
 
-dev route : https://Devspedia-API-production.up.railway.app/dev
+dev route : https://devspedia.netlify.app/dev
 
 a dev will be promted to login 
 
