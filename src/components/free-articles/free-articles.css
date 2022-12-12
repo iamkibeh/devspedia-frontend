@@ -151,3 +151,8 @@
   text-transform: uppercase;
   color: #fff;
 }
+.article-description {
+	/* background-color: red; */
+	padding-left: 100px;
+	padding-right: 150px;
+}
