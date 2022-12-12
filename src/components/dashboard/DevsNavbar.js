@@ -11,7 +11,7 @@ const DevsNavbar = () => {
     <>
       <div className='top'>
         <div className='topLeft'>
-          <h1 className='toptitle'>DevsPedia </h1>
+          <h1 className='toptitle'><Link className='link' to="/dev/dashboard" >DevsPedia</Link> </h1>
         </div>
 
         <div className='topCenter'>
