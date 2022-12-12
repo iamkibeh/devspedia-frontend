@@ -1,5 +1,4 @@
 import React, { useState, useEffect } from 'react'
-import { reactLocalStorage } from 'reactjs-localstorage'
 import OneArticle from '../free-articles/OneArticle'
 import Login from '../login/Login'
 
@@ -7,7 +6,6 @@ function Article({ user, handleLogin }) {
   const [articles, setArticles] = useState([])
   const [loading, setLoading] = useState(true)
 
-  // const isLoggedIn = reactLocalStorage.getObject('users').success
   console.log(user)
 
   const token = localStorage.getItem('jwt')
@@ -32,8 +30,7 @@ function Article({ user, handleLogin }) {
       .catch((error) => {
         console.log(error)
       })
-  }, [])
-  console.log(reactLocalStorage.getObject('users'))
+  }, [token])
   // console.log(isLoggedIn)
   const subId = localStorage.getItem('user')
   console.log(subId)
@@ -58,8 +55,10 @@ function Article({ user, handleLogin }) {
         </div>
       ) : (
         <>
-
-          <h2>Become a member to enjoy unlimited access of amazing content from our developers</h2>
+          <h2>
+            Become a member to enjoy unlimited access of amazing content from
+            our developers
+          </h2>
 
           <Login handleLogin={handleLogin} />
         </>

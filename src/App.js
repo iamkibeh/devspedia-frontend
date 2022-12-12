@@ -5,10 +5,8 @@ import Footer from './components/footer/Footer'
 import Navbar from './components/navbar/Navbar'
 import { Routes, Route } from 'react-router-dom'
 import Article from './components/articles/Article'
-import AboutUs from './components/about-us/AboutUs'
 import Home from './components/home/Home'
 import DevsDashboard from './components/dashboard/DevsDashboard'
-import User from './components/dev/Devs'
 import Profile from './components/dashboard/Profile'
 import DevArticles from './components/dev/DevArticles'
 import MyArticles from './components/dev/MyArticles'
@@ -51,7 +49,7 @@ function App() {
           })
       }
     })
-  }, [subId])
+  }, [subId, token])
 
   function handleLogin(user) {
     setUser(user)
@@ -70,7 +68,7 @@ function App() {
           return response.json().then((data) => {
             console.log(data)
             const myDev = data.find((dev) => dev.username)
-            // console.log(myDev)
+            console.log(myDev)
           })
         }
       }
