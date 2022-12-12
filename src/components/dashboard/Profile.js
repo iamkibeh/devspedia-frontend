@@ -1,9 +1,71 @@
-import React from 'react'
-import DevsDashboard from './DevsDashboard'
+import React, { useState } from 'react'
 import { VscSaveAs } from 'react-icons/vsc'
 import { GiCancel } from 'react-icons/gi'
+import { useNavigate } from 'react-router-dom'
+import { red } from '@mui/material/colors'
 
 const Profile = () => {
+  const dev_id = localStorage.getItem('dev')
+  const navigate = useNavigate()
+
+  const [profileForm, setProfileForm] = useState({
+    bio: '',
+    image_url: '',
+    linkedin: '',
+    github: '',
+    twitter: '',
+    dev_id,
+  })
+  const handleFormChange = (e) => {
+    setProfileForm({ ...profileForm, [e.target.name]: e.target.value })
+  }
+
+  const handleProfileSubmit = (e) => {
+    e.preventDefault()
+    window.location.pathname.includes('create-profile')
+      ? fetch('https://devspedia-api-production.up.railway.app/profile', {
+          method: 'POST',
+          headers: {
+            'Content-Type': 'application/json',
+            Accept: 'application/json',
+            Authorization: `Bearer ${localStorage.getItem('dev-token')}`,
+          },
+          body: JSON.stringify(profileForm),
+        })
+          .then((response) => {
+            return response.json()
+          })
+          .then((data) => {
+            console.log(data)
+            alert('profile created successfully!')
+            navigate('/dev/dashboard/settings')
+          })
+      : fetch(
+          `https://devspedia-api-production.up.railway.app/profile/${parseInt(
+            localStorage.getItem('profile')
+          )}`,
+          {
+            method: 'PATCH',
+            headers: {
+              mode: 'no-cors',
+              'Content-Type': 'application/json',
+              Authorization: `Bearer ${localStorage.getItem('dev-token')}`,
+              'Access-Control-Allow-Origin': '*',
+            },
+            body: JSON.stringify(profileForm),
+          }
+        ).then((res) => {
+          if (res.ok) {
+            res.json().then((data) => {
+              console.log(data)
+              alert('profile updated successfully!')
+              navigate('/dev/dashboard/settings')
+            })
+          } else {
+            return res
+          }
+        })
+  }
   return (
     <>
       <div className='profile-header'>
@@ -17,29 +79,59 @@ const Profile = () => {
       </div>
       <div className='profle-body'>
         <div className='profile-form'>
-          <form action='#'>
+          <form onSubmit={(e) => handleProfileSubmit(e)}>
             <div className='form-field'>
-              <label htmlFor='username'>Username</label>
-              <input type='text' name='u-name' id='username' />
+              <label htmlFor='bio'>Bio</label>
+              <input
+                type='text'
+                name='bio'
+                id='username'
+                onChange={(e) => handleFormChange(e)}
+                required
+              />
             </div>
             <div className='form-field'>
               <label htmlFor='image-url'>Image url</label>
-              <input type='text' name='image-url' id='image-url' />
+              <input
+                type='text'
+                name='image_url'
+                id='image-url'
+                onChange={(e) => handleFormChange(e)}
+                required
+              />
             </div>
             <div className='form-field'>
               <label htmlFor='github-url'>Github url</label>
-              <input type='text' name='github-url' id='github-url' />
+              <input
+                type='text'
+                name='github'
+                id='github-url'
+                onChange={(e) => handleFormChange(e)}
+                required
+              />
             </div>
             <div className='form-field'>
               <label htmlFor='linkedin-url'>Linkedin url</label>
-              <input type='text' name='linkedin-url' id='linkedin-url' />
+              <input
+                type='text'
+                name='linkedin'
+                id='linkedin-url'
+                onChange={(e) => handleFormChange(e)}
+                required
+              />
             </div>
             <div className='form-field'>
               <label htmlFor='twitter-url'>Twitter url</label>
-              <input type='text' name='twitter-url' id='twitter-url' />
+              <input
+                type='text'
+                name='twitter'
+                id='twitter-url'
+                onChange={(e) => handleFormChange(e)}
+                required
+              />
             </div>
             <div className='form-field-buttons'>
-              <button className='cancel-btn'>
+              <button className='cancel-btn' type='reset'>
                 cancel
                 <GiCancel className='tick-icon' />
               </button>

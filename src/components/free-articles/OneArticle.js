@@ -92,10 +92,13 @@ const OneArticle = ({ article, action = '' }) => {
             }
           </div>
           <div className='article-footer'>
-            <p>{created_at.slice(0, 10)}</p>
-            <p>
-              {likes} <BsHeart />
+            <p style={{ fontStyle: 'italic' }}>
+              <span className='created-at'>created on:</span>
+              {created_at.slice(0, 10)}
             </p>
+            {/* <p>
+              {likes} <BsHeart />
+            </p> */}
             <p>Minutes to read {minutes_to_read}</p>
           </div>
         </div>
@@ -143,10 +146,13 @@ const OneArticle = ({ article, action = '' }) => {
           <p>{article.content}</p>
         </div>
         <div className='article-footer'>
-          <p>{created_at.slice(0, 10)}</p>
-          <p>
-            {likes} <BsHeart />
+          <p style={{ fontStyle: 'italic' }}>
+            <span className='created-at'>created on: </span>
+            {created_at.slice(0, 10)}
           </p>
+          {/* <p>
+            {likes} <BsHeart />
+          </p> */}
           <p>Minutes to read {minutes_to_read}</p>
         </div>
       </Dialog>
