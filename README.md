@@ -66,7 +66,7 @@ A Dev can:
 
 ### Installation steps
 
-* This App is live, but you can also run it locally; here is the live link: https://devspedia.netlify.app/
+* This App is live, but you can also run it locally; here is the live link: https://devspedia-frontend.vercel.app/
 
 * To run locally, fork and clone the repository to your local machine, then run `npm install` to add dependencies.
 
@@ -99,17 +99,18 @@ Upon a successful Login, You will be redirected to your account where you will h
 
 
 #### Dev Logins
-You can also log in as a dev to be able create and delete articles:
 
-dev route : https://devspedia.netlify.app/dev
+You can also join the community as a writer- a writer is a developer who wishes to contribute by showcasing their work:
 
-a dev will be promted to login 
+This can be accessed by navigating the navbar and clicking the `write` link - https://devspedia-frontend.vercel.app/dev
 
-<img src="src/dev-login.png" width="300"/>
+a dev will be promted to login:
+
+<img src="src/vercel-dev-login.png" width="300"/>
 
 if they don't have an account, they will be able to signup:
 
-<img src="src/dev-signup.png" width="300"/>
+<img src="src/vercel-dev-signup.png" width="300"/>
 
 Upon a successful login, a dev will be redirected to a dashboard where they can be able to 
 create profile, create article, delete article, view all their articles

@@ -92,7 +92,7 @@ function Signup({ addNewUser }) {
     <>
       <div className='parent-container-signup'>
         <div className='login-box'>
-          <h3>Signup</h3>
+          <h3>Subscribe</h3>
           <h4>Welcome to Devspedia</h4>
           <p>Signup to get unlimited access to articles</p>
           <div className='devs-login-form'>
