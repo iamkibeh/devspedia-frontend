@@ -154,9 +154,9 @@
 
 .created-at {
   color: rgba(0, 0, 0, 0.49);
-
+}
 .article-description {
-	/* background-color: red; */
-	padding-left: 100px;
-	padding-right: 150px;
+  /* background-color: red; */
+  padding-left: 100px;
+  padding-right: 150px;
 }
