@@ -17,6 +17,7 @@ import { reactLocalStorage } from 'reactjs-localstorage'
 import ContactUs from './components/contact-us/ContactUs'
 import TeamsPage from './components/teamspage/TeamsPage'
 import DevsNavbar from './components/dashboard/DevsNavbar'
+import Settings from './components/dev/Settings'
 
 function App() {
   const [user, setUser] = useState(null)
@@ -94,20 +95,6 @@ function App() {
 
             <Route path='about' element={<TeamsPage />} />
             <Route path='contact_us' element={<ContactUs />} />
-            {/* <Route path='dev' element={<DevsDashboard user={user} />}> */}
-            {/* <Route index element={<DevsDashboard />} /> */}
-            {/* <Route
-                path=''
-                index
-                element={<DevLogin handleDevLogin={handleDevLogin} />}
-              />
-              <Route path='signup' element={<DevSignup />} />
-              <Route path=':id/dashboard/profile' element={<Profile />} />
-              <Route path=':id/articles/create' element={<DevArticles />} />
-              <Route path=':id/articles' element={<MyArticles />} />
-            </Route> */}
-
-            {/* kibet */}
             <Route
               path='dev'
               element={<DevLogin handleDevLogin={handleDevLogin} />}
@@ -118,8 +105,10 @@ function App() {
               <Route index element={<Home />} />
 
               <Route path='profile' element={<Profile />} />
+              <Route path='create-profile' element={<Profile />} />
               <Route path='create' element={<DevArticles />} />
               <Route path='articles' element={<MyArticles />} />
+              <Route path='settings' element={<Settings />} />
             </Route>
 
             <Route path='*' element={<Home />} />
