@@ -137,3 +137,8 @@
 .css-10ghrmp-MuiPaper-root-MuiAppBar-root {
 	background-color: #586b88 !important;
 }
+.article-description {
+	/* background-color: red; */
+	padding-left: 100px;
+	padding-right: 150px;
+}
