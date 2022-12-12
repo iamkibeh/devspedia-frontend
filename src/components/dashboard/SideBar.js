@@ -11,7 +11,7 @@ import { NavLink } from 'react-router-dom'
 const SideBar = () => {
   const handleLogoutClick = () => {
     window.location.href = '/dev'
-    return localStorage.clear('dev-token')
+    return localStorage.removeItem('dev-token')
   }
 
   return (
