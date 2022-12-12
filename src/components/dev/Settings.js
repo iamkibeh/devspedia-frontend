@@ -49,7 +49,8 @@ const Settings = () => {
         <div className='error'>
           <h2>You have not created your profile!</h2>
           <p>
-            <Link to='/dev/create-profile'>click</Link> here to create one
+            <Link to='/dev/dashboard/create-profile'>click</Link> here to create
+            one
           </p>
         </div>
       ) : (

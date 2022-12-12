@@ -18,7 +18,12 @@ export default function Navbar() {
   return (
     <div className='top'>
       <div className='topLeft'>
-        <h1 className='toptitle'> <Link className='link' to='/'>DevsPedia</Link></h1>
+        <h1 className='toptitle'>
+          {' '}
+          <Link className='link' to='/'>
+            DevsPedia
+          </Link>
+        </h1>
       </div>
 
       <div className='topCenter'>
@@ -60,7 +65,7 @@ export default function Navbar() {
             </Link>
           </li>
           <li className='topListItem'>
-            <Link className='link' to='/signup'>
+            <Link className='link' to='/articles'>
               <button className='topButton'>Get Unlimited Access</button>
             </Link>
           </li>
