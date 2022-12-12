@@ -30,7 +30,7 @@ Kibet Immanuel
 * Ruby on Rails - developing the backend API 
 * PostgreSQL - storing database tables
 * Railway - Hosting the API
-* Netlify - Hosting the Frontend
+* Vercel - Hosting the Frontend
 
 # MVPs
 
