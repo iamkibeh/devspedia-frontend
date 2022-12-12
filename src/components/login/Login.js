@@ -108,15 +108,15 @@ function Login({ handleLogin, action = '' }) {
                   placeholder='Password'
                 />
               </div>
+              <p style={{ color: 'red', fontStyle: 'italic' }}>
+                {errors && `${errors}!`}
+              </p>
               <div className='logins-button-form'>
                 <button type='submit'>login</button>
               </div>
             </form>
           </div>
           <div className='login-footer'>
-            <p style={{ color: 'red', fontStyle: 'italic' }}>
-              {errors && `${errors}!`}
-            </p>
             <div className='register'>
               <p>
                 Don't have an account?

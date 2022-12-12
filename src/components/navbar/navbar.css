@@ -8,7 +8,12 @@
   z-index: 999;
 }
 
-.topLeft,
+.topLeft {
+  flex: 3;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
 .topRight {
   flex: 3;
   display: flex;
@@ -71,4 +76,31 @@ ul {
 .link {
   text-decoration: none;
   color: inherit;
+}
+
+/* final css changes on login button */
+
+.drop-down-header {
+  /* margin-bottom: 0.8em;*/
+  padding: 0.4em;
+  /* font-size: 1.3rem; */
+}
+.drop-down-list-container .drop-down-list {
+  padding: 0;
+  margin: 0;
+  padding-left: 0.4em;
+  border: 2px solid gray;
+  box-sizing: border-box;
+}
+
+.drop-down-list-container .drop-down-list li {
+  list-style-type: none;
+  border-bottom: 1px solid grey;
+}
+.drop-down-list li a {
+  padding: 0 0.5rem 0 0;
+}
+.drop-down-container {
+  display: flex;
+  gap: 2rem;
 }
