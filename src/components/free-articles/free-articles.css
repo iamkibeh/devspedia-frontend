@@ -151,3 +151,7 @@
   text-transform: uppercase;
   color: #fff;
 }
+
+.created-at {
+  color: rgba(0, 0, 0, 0.49);
+}

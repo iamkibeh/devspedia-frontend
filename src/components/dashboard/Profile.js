@@ -41,7 +41,7 @@ const Profile = () => {
             navigate('/dev/dashboard/settings')
           })
       : fetch(
-          `https://devspedia-api-production.up.railway.app/profile/${JSON.parse(
+          `https://devspedia-api-production.up.railway.app/profile/${parseInt(
             localStorage.getItem('profile')
           )}`,
           {
@@ -49,8 +49,8 @@ const Profile = () => {
             headers: {
               mode: 'no-cors',
               'Content-Type': 'application/json',
-              Accept: 'application/json',
               Authorization: `Bearer ${localStorage.getItem('dev-token')}`,
+              'Access-Control-Allow-Origin': '*',
             },
             body: JSON.stringify(profileForm),
           }

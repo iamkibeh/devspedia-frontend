@@ -23,7 +23,6 @@ const DevArticles = () => {
       [e.target.name]: e.target.value,
     })
   }
-  console.log(newArticle)
   const handleSaveArticle = (e) => {
     e.preventDefault()
     fetch(`https://devspedia-api-production.up.railway.app/myarticles`, {

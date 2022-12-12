@@ -67,9 +67,9 @@ function App() {
       (response) => {
         if (response.ok) {
           return response.json().then((data) => {
-            console.log(data)
+            // console.log(data)
             const myDev = data.find((dev) => dev.username)
-            console.log(myDev)
+            // console.log(myDev)
           })
         }
       }
