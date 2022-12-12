@@ -43,8 +43,8 @@ function Article({ user, handleLogin }) {
       {token ? (
         <div className='free-article-container'>
           <div className='free-articles-title'>
-            {user && <p className='welcome-user'>welcome {user.username}</p>}
-            <h2>Our articles</h2>
+            {user && <p className='welcome-user' style={{textAlign: "center",color:"red"}}>Welcome {user.username}</p>}
+            <h2>Enjoy Amazing Articles From Our Developers</h2>
           </div>
           <div className='articles-container'>
             {loading ? (
@@ -59,7 +59,7 @@ function Article({ user, handleLogin }) {
       ) : (
         <>
 
-          <h2>Become a member to enjoy unlimited access of amazing content from our developers</h2>
+          <h2 style={{textAlign: "center"}}>Become a member to enjoy unlimited access of amazing content from our developers</h2>
 
           <Login handleLogin={handleLogin} />
         </>
